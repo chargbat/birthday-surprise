@@ -1,0 +1,474 @@
+/* ==========================================================================
+   Warm Editorial Romance × Starlit Coastal Meadow — Design System & Tokens
+   ========================================================================== */
+
+:root {
+  /* Sky & Sea Palette */
+  --sky-deep: #091326;
+  --sky-mid: #162642;
+  --sky-horizon: #2d3e58;
+  --sky-warm-glow: #6b5362;
+  --sea-deep: #0e2238;
+  --sea-surface: #193752;
+  --sea-shimmer: #e8c792;
+
+  /* Meadow Grass Palette */
+  --grass-back: #163327;
+  --grass-mid: #234d3a;
+  --grass-front: #346b51;
+  --grass-highlight: #689f7c;
+
+  /* Warm Editorial Champagne & Rose-Gold Palette */
+  --paper-ivory: #fbf7f0;
+  --paper-cream: #f3ece1;
+  --paper-warm: #e9dfd0;
+  --ink-espresso: #231f1e;
+  --ink-Soft: #544b47;
+  --ink-muted: #7d726d;
+  --rose-gold: #b87d6b;
+  --rose-gold-deep: #965d4c;
+  --champagne-gold: #c89d54;
+  --champagne-light: #f2dfb6;
+
+  /* Typography */
+  --font-display-en: 'Italiana', 'Instrument Serif', Georgia, serif;
+  --font-serif-accent: 'Instrument Serif', Georgia, serif;
+  --font-heading-th: 'Pridi', serif;
+  --font-body-th: 'Krub', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--sky-deep);
+  color: var(--ink-espresso);
+  font-family: var(--font-body-th);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--paper-ivory);
+  line-height: 1.85;
+  letter-spacing: 0; /* Strict zero tracking for Thai readability */
+}
+
+/* ==========================================================================
+   Typography Rules (Anti-AI & Thai Micro-Typography)
+   ========================================================================== */
+
+.font-display-en {
+  font-family: var(--font-display-en);
+  letter-spacing: 0.02em;
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+}
+
+.font-heading-th {
+  font-family: var(--font-heading-th);
+  line-height: 1.32;
+  letter-spacing: 0 !important;
+}
+
+.font-body-th {
+  font-family: var(--font-body-th);
+  line-height: 1.85;
+  letter-spacing: 0 !important;
+}
+
+/* ==========================================================================
+   Hero Panorama: Starry Sky + Shimmering Sea + Swaying Emerald Grass
+   ========================================================================== */
+
+.scenic-hero {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #071021 0%,
+    #11203a 35%,
+    #253855 58%,
+    #4c475e 71%,
+    #826667 78%,
+    #10253b 78.5%,
+    #0c1d30 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+#starlight-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Ocean Horizon & Shimmering Reflections */
+.ocean-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 24%;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(232, 199, 146, 0.22) 0%,
+    rgba(30, 62, 92, 0.88) 18%,
+    rgba(16, 37, 58, 0.96) 65%,
+    rgba(11, 27, 40, 1) 100%
+  );
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ocean-wave-shimmer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse 38% 65% at 50% 0%,
+    rgba(248, 224, 176, 0.42) 0%,
+    rgba(218, 175, 114, 0.16) 45%,
+    transparent 75%
+  );
+  animation: seaPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes seaPulse {
+  0% {
+    opacity: 0.75;
+    transform: translateX(-50%) scaleX(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.06);
+  }
+}
+
+/* Meadow Grass Layers */
+.meadow-layer {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -6px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.grass-sway-slow {
+  transform-origin: bottom center;
+  animation: swayGrassSlow 5.5s ease-in-out infinite alternate;
+}
+
+.grass-sway-medium {
+  transform-origin: bottom center;
+  animation: swayGrassMedium 4.2s ease-in-out infinite alternate-reverse;
+}
+
+.grass-sway-fast {
+  transform-origin: bottom center;
+  animation: swayGrassFast 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes swayGrassSlow {
+  0% { transform: skewX(-2.5deg) scaleY(1); }
+  100% { transform: skewX(3deg) scaleY(1.02); }
+}
+
+@keyframes swayGrassMedium {
+  0% { transform: skewX(-4deg) translateX(-4px); }
+  100% { transform: skewX(4.5deg) translateX(5px); }
+}
+
+@keyframes swayGrassFast {
+  0% { transform: skewX(-5.5deg) translateX(-6px); }
+  100% { transform: skewX(6deg) translateX(6px); }
+}
+
+/* Editorial Glass Card on Hero */
+.hero-editorial-frame {
+  position: relative;
+  z-index: 10;
+  background: rgba(15, 27, 45, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(242, 223, 182, 0.28);
+  box-shadow: 0 24px 60px rgba(5, 10, 20, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* ==========================================================================
+   Interactive Birthday Cake & Candle Flame
+   ========================================================================== */
+
+.cake-stage-card {
+  position: relative;
+  background: radial-gradient(
+      circle at 50% 28%,
+      rgba(255, 219, 148, var(--candle-glow-opacity, 0.35)) 0%,
+      rgba(251, 247, 240, 0.96) 62%
+    ),
+    var(--paper-ivory);
+  border: 1px solid rgba(200, 157, 84, 0.35);
+  box-shadow: 0 24px 60px rgba(35, 31, 30, 0.08);
+  transition: background 0.8s ease, box-shadow 0.8s ease;
+}
+
+.cake-stage-card.candle-out {
+  --candle-glow-opacity: 0.04;
+}
+
+/* Candle Flame Animation */
+.candle-flame-group {
+  transform-origin: 50% 90%;
+  animation: flameFlicker 2.2s ease-in-out infinite;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+
+.candle-flame-group.holding-wish {
+  animation: flameWishPulse 0.45s ease-in-out infinite alternate;
+}
+
+.candle-flame-group.extinguished {
+  opacity: 0;
+  transform: scale(0.1) translateY(-12px);
+  pointer-events: none;
+}
+
+.candle-aura {
+  animation: auraBreath 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: rotate(-1.5deg) scale(1, 1); }
+  25% { transform: rotate(2deg) scale(0.96, 1.05); }
+  50% { transform: rotate(-2deg) scale(1.03, 0.97); }
+  75% { transform: rotate(1.5deg) scale(0.98, 1.04); }
+}
+
+@keyframes flameWishPulse {
+  0% { transform: scale(1.08) rotate(-3deg); filter: brightness(1.15); }
+  100% { transform: scale(1.26) rotate(3deg); filter: brightness(1.35); }
+}
+
+@keyframes auraBreath {
+  0% { opacity: 0.45; transform: scale(0.92); }
+  100% { opacity: 0.85; transform: scale(1.12); }
+}
+
+/* Smoke Wisp when candle is blown out */
+.candle-smoke {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.candle-smoke.active {
+  animation: smokeRise 2.8s ease-out forwards;
+}
+
+@keyframes smokeRise {
+  0% {
+    opacity: 0.85;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translateY(-28px) translateX(6px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) translateX(-8px) scale(1.5);
+  }
+}
+
+/* Progress Ring around Cake Button */
+.wish-ring-progress {
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+/* ==========================================================================
+   3D Wax-Sealed Envelope & Birthday Letter
+   ========================================================================== */
+
+.envelope-wrapper {
+  perspective: 1200px;
+}
+
+.envelope-card {
+  position: relative;
+  background: linear-gradient(145deg, #f6efe4 0%, #eadfce 100%);
+  border: 1px solid rgba(184, 125, 107, 0.35);
+  box-shadow: 0 20px 50px rgba(35, 31, 30, 0.09);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+}
+
+.wax-seal-btn {
+  width: 78px;
+  height: 78px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 32% 30%, #d99b88 0%, #b56e5b 55%, #874837 100%);
+  box-shadow:
+    0 8px 20px rgba(135, 72, 55, 0.38),
+    inset 0 2px 4px rgba(255, 232, 224, 0.45),
+    inset 0 -3px 6px rgba(77, 36, 26, 0.5);
+  border: 2px solid rgba(242, 223, 182, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wax-seal-btn:hover,
+.wax-seal-btn:focus-visible {
+  transform: scale(1.07) rotate(-4deg);
+  box-shadow: 0 12px 26px rgba(135, 72, 55, 0.48);
+}
+
+.wax-seal-btn:active {
+  transform: scale(0.95);
+}
+
+.letter-sheet {
+  background:
+    linear-gradient(90deg, rgba(184, 125, 107, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(200, 157, 84, 0.08) 1px, transparent 1px),
+    var(--paper-ivory);
+  background-size: 28px 28px, 100% 36px, 100% 100%;
+  border: 1px solid rgba(200, 157, 84, 0.35);
+  box-shadow: 0 24px 60px rgba(35, 31, 30, 0.1);
+}
+
+/* ==========================================================================
+   3D Flip Polaroid Memory Cards
+   ========================================================================== */
+
+.polaroid-scene {
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.polaroid-inner {
+  position: relative;
+  width: 100%;
+  height: 410px;
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+.polaroid-scene.is-flipped .polaroid-inner {
+  transform: rotateY(180deg);
+}
+
+.polaroid-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 16px 16px 24px 16px;
+  box-shadow: 0 18px 40px rgba(35, 31, 30, 0.09);
+  border: 1px solid rgba(200, 157, 84, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.polaroid-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #fbf7f0 0%, #f3ece1 100%);
+  padding: 28px 24px;
+}
+
+/* ==========================================================================
+   Starlight Wish Orbs over the Meadow
+   ========================================================================== */
+
+.wish-orb-btn {
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+.wish-orb-btn:hover {
+  transform: translateY(-4px);
+}
+
+.wish-orb-btn.unlocked {
+  border-color: rgba(232, 199, 146, 0.85);
+  background: rgba(255, 248, 231, 0.16);
+}
+
+/* Floating music controller pill */
+.audio-floating-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 60;
+  background: rgba(15, 27, 45, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 199, 146, 0.42);
+  color: #fbf7f0;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.audio-floating-btn:active {
+  transform: scale(0.95);
+}
+
+.vinyl-spin {
+  animation: spinSlow 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-spin.playing {
+  animation-play-state: running;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Confetti Canvas overlay */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 55;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

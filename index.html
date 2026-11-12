@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Happy Birthday — สำหรับคนพิเศษของเค้า ✨</title>
+  <meta name="description" content="เว็บไซต์เซอร์ไพรส์วันเกิดสุดพิเศษ ใต้แสงดาว ริมทะเล และทุ่งหญ้าสีเขียว" />
+  <meta name="theme-color" content="#091326" />
+
+  <!-- Curated Anti-AI Typography: Italiana + Instrument Serif (Latin) & Pridi + Krub (Thai) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Italiana&family=Krub:wght@300;400;500;600&family=Pridi:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS Play CDN for responsive utility styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Design Tokens & Animations -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="antialiased selection:bg-[#e8c792]/40 selection:text-[#231f1e]">
+
+  <!-- Confetti Celebration Canvas Overlay -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Music Box & Sea Breeze Toggle (Top Right, Safe for Tablet/Mobile) -->
+  <button
+    id="audio-toggle-btn"
+    type="button"
+    aria-pressed="false"
+    class="audio-floating-btn flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-body-th cursor-pointer"
+  >
+    <span
+      id="audio-vinyl-icon"
+      class="vinyl-spin w-6 h-6 rounded-full bg-gradient-to-tr from-[#c89d54] via-[#fbf7f0] to-[#b87d6b] flex items-center justify-center text-[#091326] text-xs font-bold shadow-inner"
+      aria-hidden="true"
+    >
+      ♪
+    </span>
+    <span id="audio-toggle-label">เปิดเพลงคลอเบาๆ</span>
+  </button>
+
+  <!-- ========================================================================
+       HERO SCENE: Starlit Sky, Shimmering Ocean & Swaying Green Meadow
+       ======================================================================== -->
+  <header class="scenic-hero relative px-4 pt-16 pb-36 md:pb-44 flex flex-col items-center justify-center">
+    <!-- Interactive Starlight, Shooting Stars, Ocean Sparkles & Meadow Fireflies Canvas -->
+    <canvas id="starlight-canvas" title="แตะบนท้องฟ้าเพื่อเสกดาวตก"></canvas>
+
+    <!-- Subtle Sky Interaction Hint -->
+    <div class="relative z-10 mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#091326]/55 border border-[#e8c792]/25 text-[#f2dfb6] text-xs md:text-sm font-body-th backdrop-blur-md pointer-events-none">
+      <span class="inline-block w-2 h-2 rounded-full bg-[#f2dfb6] animate-ping"></span>
+      <span>แตะบนท้องฟ้าเพื่อเสกดาวตกให้เธอนะ ✦</span>
+    </div>
+
+    <!-- Center Editorial Romance Card -->
+    <div class="hero-editorial-frame w-full max-w-xl mx-auto rounded-[28px] px-6 py-9 md:px-12 md:py-12 text-center text-[#fbf7f0]">
+      <p
+        id="hero-date-badge"
+        class="font-display-en text-xs md:text-sm text-[#f2dfb6] tracking-[0.22em] mb-3"
+      >
+        SPECIAL DAY · 2026
+      </p>
+
+      <h1
+        id="hero-title"
+        class="font-display-en text-5xl sm:text-6xl md:text-7xl text-[#fbf7f0] leading-[1.08] mb-3 drop-shadow-sm"
+      >
+        Happy Birthday
+      </h1>
+
+      <div class="flex items-center justify-center gap-3 my-3">
+        <span class="h-px w-10 bg-[#e8c792]/45"></span>
+        <p class="font-serif-italic text-xl md:text-2xl text-[#f2dfb6]">
+          to my dearest
+        </p>
+        <span class="h-px w-10 bg-[#e8c792]/45"></span>
+      </div>
+
+      <h2
+        id="hero-recipient"
+        class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#f5df9d] font-medium mb-4"
+      >
+        ที่รักของเค้า
+      </h2>
+
+      <p
+        id="hero-subtitle"
+        class="font-body-th text-[16px] md:text-[18px] text-[#fbf7f0]/90 max-w-md mx-auto leading-[1.85] mb-8"
+      >
+        สุขสันต์วันเกิดนะคนเก่ง ขอบคุณที่เป็นเหมือนทะเลที่อบอุ่นและเป็นดาวที่สว่างที่สุดในชีวิตเค้าเสมอมา
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+        <a
+          href="#cake-section"
+          class="w-full sm:w-auto min-h-[48px] px-7 py-3.5 rounded-full bg-gradient-to-r from-[#e8c792] via-[#f2dfb6] to-[#d6ae6b] text-[#1a1615] font-body-th font-medium text-[16px] shadow-lg hover:brightness-105 active:scale-95 transition flex items-center justify-center gap-2"
+        >
+          <span>ไปเป่าเค้กอธิษฐานกัน</span>
+          <span aria-hidden="true">🎂</span>
+        </a>
+        <a
+          href="#letter-section"
+          class="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-[#f2dfb6]/35 text-[#fbf7f0] font-body-th text-[16px] active:scale-95 transition flex items-center justify-center gap-2"
+        >
+          <span>อ่านจดหมายของเค้า</span>
+          <span aria-hidden="true">💌</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Shimmering Moonlit Sea Horizon -->
+    <div class="ocean-layer" aria-hidden="true">
+      <div class="ocean-wave-shimmer"></div>
+      <!-- Delicate SVG Wave Lines on the Sea -->
+      <svg class="w-full h-full opacity-45" viewBox="0 0 1440 220" preserveAspectRatio="none">
+        <path
+          d="M0,24 C320,38 520,8 760,22 C1020,36 1220,10 1440,24 L1440,220 L0,220 Z"
+          fill="rgba(18, 45, 72, 0.55)"
+        />
+        <path
+          d="M420,45 Q720,32 1020,45"
+          stroke="#f5dfb5"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.65"
+        />
+        <path
+          d="M490,72 Q720,62 950,72"
+          stroke="#f5dfb5"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.45"
+        />
+        <path
+          d="M550,102 Q720,94 890,102"
+          stroke="#f5dfb5"
+          stroke-width="1"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.35"
+        />
+      </svg>
+    </div>
+
+    <!-- Lush Swaying Emerald & Sage Green Meadow Grass Silhouette -->
+    <div class="meadow-layer" aria-hidden="true">
+      <svg class="w-full h-28 sm:h-36 md:h-44 block" viewBox="0 0 1440 220" preserveAspectRatio="none">
+        <!-- Back Deep Emerald Hill & Distant Grass -->
+        <path
+          d="M0,145 Q360,95 740,135 T1440,120 L1440,220 L0,220 Z"
+          fill="#163327"
+        />
+        <!-- Mid-layer Swaying Meadow Blades -->
+        <g class="grass-sway-slow" fill="#234d3a">
+          <path d="M0,165 Q240,125 560,155 T1160,138 T1440,155 L1440,220 L0,220 Z" />
+          <path d="M40,170 Q55,105 78,78 Q68,125 65,170 Z" />
+          <path d="M120,175 Q105,110 92,85 Q115,125 135,175 Z" />
+          <path d="M210,168 Q235,98 260,68 Q242,120 232,168 Z" />
+          <path d="M340,172 Q325,112 308,82 Q335,122 356,172 Z" />
+          <path d="M480,165 Q505,96 528,66 Q508,118 498,165 Z" />
+          <path d="M620,175 Q600,115 585,84 Q612,126 635,175 Z" />
+          <path d="M770,168 Q795,102 820,72 Q800,122 790,168 Z" />
+          <path d="M910,170 Q892,108 875,78 Q902,122 925,170 Z" />
+          <path d="M1060,166 Q1085,95 1110,64 Q1090,118 1080,166 Z" />
+          <path d="M1210,172 Q1190,108 1172,80 Q1200,125 1228,172 Z" />
+          <path d="M1350,165 Q1375,100 1398,70 Q1380,120 1368,165 Z" />
+        </g>
+
+        <!-- Foreground Lush Green Grass & Coastal Wildflowers -->
+        <g class="grass-sway-medium" fill="#346b51">
+          <path d="M0,185 Q420,150 860,175 T1440,168 L1440,220 L0,220 Z" />
+          <path d="M18,195 Q38,118 64,82 Q46,138 38,195 Z" />
+          <path d="M85,192 Q112,115 142,80 Q118,140 105,192 Z" />
+          <path d="M165,195 Q148,125 130,92 Q158,140 182,195 Z" />
+          <path d="M275,190 Q302,112 332,76 Q308,136 295,190 Z" />
+          <path d="M395,195 Q378,122 358,88 Q388,138 412,195 Z" />
+          <path d="M535,192 Q565,114 595,78 Q572,138 556,192 Z" />
+          <path d="M675,195 Q655,125 635,92 Q665,142 692,195 Z" />
+          <path d="M830,190 Q860,115 892,80 Q868,138 852,190 Z" />
+          <path d="M975,195 Q955,120 935,88 Q965,140 992,195 Z" />
+          <path d="M1135,190 Q1165,112 1196,75 Q1172,136 1155,190 Z" />
+          <path d="M1285,195 Q1265,122 1245,90 Q1275,140 1302,195 Z" />
+          <path d="M1390,192 Q1412,120 1432,88 Q1415,142 1408,192 Z" />
+        </g>
+
+        <!-- Sage Highlight Blades & Dew Sparkles -->
+        <g class="grass-sway-fast" fill="#689f7c">
+          <path d="M62,205 Q88,132 116,96 Q94,152 80,205 Z" opacity="0.85" />
+          <path d="M245,205 Q225,136 205,102 Q232,152 260,205 Z" opacity="0.75" />
+          <path d="M455,205 Q482,130 512,95 Q488,150 472,205 Z" opacity="0.85" />
+          <path d="M735,205 Q762,134 790,98 Q768,152 752,205 Z" opacity="0.8" />
+          <path d="M1035,205 Q1015,135 995,102 Q1022,152 1052,205 Z" opacity="0.75" />
+          <path d="M1325,205 Q1352,130 1380,95 Q1358,150 1342,205 Z" opacity="0.85" />
+          <!-- Tiny Glowing Wildflower Blossoms in the Grass -->
+          <circle cx="116" cy="96" r="3.5" fill="#f5dfb5" />
+          <circle cx="332" cy="76" r="3" fill="#f2c6b6" />
+          <circle cx="512" cy="95" r="3.5" fill="#f5dfb5" />
+          <circle cx="790" cy="98" r="3" fill="#f5dfb5" />
+          <circle cx="1110" cy="64" r="3.5" fill="#f2c6b6" />
+          <circle cx="1380" cy="95" r="3" fill="#f5dfb5" />
+        </g>
+
+        <!-- Seamless Transition Curve into the Warm Ivory Editorial Section -->
+        <path
+          d="M0,202 Q720,184 1440,202 L1440,222 L0,222 Z"
+          fill="#fbf7f0"
+        />
+      </svg>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SECTION 1: Interactive Birthday Cake (Make a Wish & Blow Out Candle)
+       ======================================================================== -->
+  <main>
+    <section id="cake-section" class="py-16 md:py-24 px-4 sm:px-6 max-w-4xl mx-auto">
+      <div
+        id="cake-stage-card"
+        class="cake-stage-card rounded-[32px] p-6 sm:p-10 md:p-14 text-center"
+      >
+        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
+          Make a Birthday Wish
+        </p>
+        <h2
+          id="cake-title"
+          class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium mb-3"
+        >
+          หลับตาอธิษฐาน แล้วเป่าเทียนกันนะ
+        </h2>
+        <p
+          id="wish-status-text"
+          class="font-body-th text-[16px] md:text-[17px] text-[#544b47] max-w-lg mx-auto mb-6"
+        >
+          แตะค้างที่เปลวเทียนหรือปุ่มด้านล่างเพื่ออธิษฐาน (หรือกดปุ่มเป่าผ่านไมค์) แล้วปล่อยมือเพื่อดับเทียน
+        </p>
+
+        <!-- Handcrafted Artisanal SVG Birthday Cake with Interactive Flickering Candle -->
+        <div class="relative w-full max-w-[320px] mx-auto my-4 select-none">
+          <svg
+            viewBox="0 0 320 310"
+            class="w-full h-auto overflow-visible"
+            role="img"
+            aria-label="เค้กวันเกิดพร้อมเทียนที่แตะเพื่อเป่าได้"
+          >
+            <defs>
+              <radialGradient id="flameAuraGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffdfa0" stop-opacity="0.85" />
+                <stop offset="55%" stop-color="#f5a65b" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#f5a65b" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="cakeTierTop" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#fffdf9" />
+                <stop offset="50%" stop-color="#f9efe2" />
+                <stop offset="100%" stop-color="#efe0cc" />
+              </linearGradient>
+              <linearGradient id="cakeTierBottom" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f7ede0" />
+                <stop offset="50%" stop-color="#eedbc6" />
+                <stop offset="100%" stop-color="#dfc6ab" />
+              </linearGradient>
+              <linearGradient id="roseFrosting" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e5b2a3" />
+                <stop offset="100%" stop-color="#c68573" />
+              </linearGradient>
+            </defs>
+
+            <!-- Smoke Wisp (Appears when candle is blown out) -->
+            <g id="candle-smoke" class="candle-smoke">
+              <path
+                d="M160,72 Q148,52 164,36 Q178,20 156,4"
+                fill="none"
+                stroke="#9e948e"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+              <circle cx="162" cy="24" r="3" fill="#b8aea8" opacity="0.6" />
+            </g>
+
+            <!-- Interactive Candle Flame & Warm Glow Aura -->
+            <g id="candle-flame" class="candle-flame-group" title="แตะเพื่อเป่าเทียน">
+              <circle
+                cx="160"
+                cy="62"
+                r="46"
+                fill="url(#flameAuraGrad)"
+                class="candle-aura"
+              />
+              <!-- Outer Golden Flame -->
+              <path
+                d="M160,30 C172,48 175,65 160,76 C145,65 148,48 160,30 Z"
+                fill="#ffae42"
+              />
+              <!-- Inner Bright Flame -->
+              <path
+                d="M160,40 C167,52 168,64 160,73 C152,64 153,52 160,40 Z"
+                fill="#fff3b0"
+              />
+              <!-- Blue Base Core -->
+              <ellipse cx="160" cy="72" rx="4" ry="2.5" fill="#7ec8ff" opacity="0.8" />
+            </g>
+
+            <!-- Candle Wick & Striped Champagne Candle Stick -->
+            <line x1="160" y1="75" x2="160" y2="83" stroke="#2c221e" stroke-width="2" />
+            <rect
+              x="153"
+              y="82"
+              width="14"
+              height="52"
+              rx="4"
+              fill="#fffaf2"
+              stroke="#c89d54"
+              stroke-width="1.5"
+            />
+            <path d="M153,95 L167,103 M153,110 L167,118 M153,125 L167,133" stroke="#d89b88" stroke-width="2.2" />
+
+            <!-- Top Tier Strawberries & Emerald Mint Leaves -->
+            <g>
+              <!-- Mint Leaves -->
+              <path d="M115,134 Q102,124 98,135 Q106,142 115,134 Z" fill="#467e60" />
+              <path d="M205,134 Q218,124 222,135 Q214,142 205,134 Z" fill="#467e60" />
+              <!-- Berries -->
+              <path d="M124,122 C132,122 135,136 124,138 C113,136 116,122 124,122 Z" fill="#c95b54" />
+              <path d="M196,122 C204,122 207,136 196,138 C185,136 188,122 196,122 Z" fill="#c95b54" />
+              <circle cx="144" cy="134" r="4" fill="#e8c792" />
+              <circle cx="176" cy="134" r="4" fill="#e8c792" />
+            </g>
+
+            <!-- Top Cake Tier -->
+            <rect
+              x="92"
+              y="134"
+              width="136"
+              height="62"
+              rx="12"
+              fill="url(#cakeTierTop)"
+              stroke="#d5b895"
+              stroke-width="1.5"
+            />
+            <!-- Rose-Gold Frosting Drips on Top Tier -->
+            <path
+              d="M92,144 Q104,134 116,146 Q128,158 140,145 Q152,134 164,148 Q176,160 188,145 Q200,134 212,147 Q220,154 228,144 L228,138 Q228,134 220,134 L100,134 Q92,134 92,138 Z"
+              fill="url(#roseFrosting)"
+            />
+
+            <!-- Bottom Cake Tier -->
+            <rect
+              x="56"
+              y="192"
+              width="208"
+              height="76"
+              rx="14"
+              fill="url(#cakeTierBottom)"
+              stroke="#caa982"
+              stroke-width="1.5"
+            />
+            <!-- Cream Scallop Garland on Bottom Tier -->
+            <path
+              d="M56,206 Q74,222 92,206 Q110,222 128,206 Q146,222 164,206 Q182,222 200,206 Q218,222 236,206 Q250,218 264,206"
+              fill="none"
+              stroke="#fffaf2"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <!-- Golden Pearls & Botanical Sprigs on Bottom Tier -->
+            <circle cx="92" cy="232" r="3.5" fill="#c89d54" />
+            <circle cx="128" cy="232" r="3.5" fill="#c89d54" />
+            <circle cx="164" cy="232" r="3.5" fill="#c89d54" />
+            <circle cx="200" cy="232" r="3.5" fill="#c89d54" />
+            <circle cx="236" cy="232" r="3.5" fill="#c89d54" />
+
+            <!-- Porcelain Cake Stand with Meadow Green Leaf Base Accent -->
+            <ellipse cx="160" cy="270" rx="126" ry="10" fill="#e5d7c3" stroke="#c89d54" stroke-width="1.5" />
+            <path d="M132,276 L188,276 L204,298 L116,298 Z" fill="#d9c7af" stroke="#c89d54" stroke-width="1.2" />
+            <ellipse cx="160" cy="298" rx="54" ry="6" fill="#c8b296" />
+          </svg>
+        </div>
+
+        <p
+          id="cake-flavor-label"
+          class="font-display-en text-xs md:text-sm text-[#7d726d] tracking-widest mb-6"
+        >
+          Vanilla Bean &amp; Rose Champagne Cake
+        </p>
+
+        <!-- Interactive Controls: Touch-Hold Button + Mic Blow Button + Relight Button -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            id="blow-candle-btn"
+            type="button"
+            class="relative min-h-[56px] px-7 py-3.5 rounded-full bg-[#231f1e] text-[#fbf7f0] font-body-th font-medium text-[16px] md:text-[17px] shadow-xl hover:bg-[#38312f] active:scale-95 transition flex items-center justify-center gap-3 cursor-pointer select-none"
+          >
+            <!-- SVG Progress Ring -->
+            <svg class="w-10 h-10 -rotate-90 shrink-0" viewBox="0 0 60 60" aria-hidden="true">
+              <circle
+                cx="30"
+                cy="30"
+                r="26"
+                fill="none"
+                stroke="rgba(242, 223, 182, 0.25)"
+                stroke-width="4"
+              />
+              <circle
+                id="wish-progress-circle"
+                class="wish-ring-progress"
+                cx="30"
+                cy="30"
+                r="26"
+                fill="none"
+                stroke="#e8c792"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-dasharray="163.36"
+                stroke-dashoffset="163.36"
+              />
+              <text
+                x="30"
+                y="35"
+                text-anchor="middle"
+                fill="#f2dfb6"
+                font-size="16"
+                transform="rotate(90 30 30)"
+              >
+                🕯️
+              </text>
+            </svg>
+            <span id="blow-candle-btn-text">แตะค้างเพื่ออธิษฐานและเป่าเทียน</span>
+          </button>
+
+          <button
+            id="mic-blow-btn"
+            type="button"
+            class="min-h-[52px] px-6 py-3 rounded-full bg-[#f3ece1] hover:bg-[#e9dfd0] border border-[#c89d54]/45 text-[#231f1e] font-body-th text-[15px] md:text-[16px] active:scale-95 transition cursor-pointer"
+          >
+            เป่าลมผ่านไมค์ 🎙️
+          </button>
+
+          <button
+            id="relight-candle-btn"
+            type="button"
+            class="hidden min-h-[50px] px-6 py-3 rounded-full bg-[#f3ece1] hover:bg-[#e9dfd0] border border-[#c89d54]/50 text-[#231f1e] font-body-th text-[15px] active:scale-95 transition cursor-pointer"
+          >
+            จุดเทียนอธิษฐานอีกครั้ง 🕯️
+          </button>
+        </div>
+
+        <!-- Revealed Birthday Blessing Card after Candle is Blown Out -->
+        <div
+          id="after-blow-panel"
+          class="hidden mt-8 pt-8 border-t border-[#c89d54]/35 max-w-xl mx-auto text-center animate-fade-in"
+        >
+          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#e8c792]/25 text-[#965d4c] text-sm font-body-th mb-3">
+            <span>✦ Wish Sent to the Stars ✦</span>
+          </div>
+          <h3
+            id="after-blow-title"
+            class="font-heading-th text-2xl md:text-3xl text-[#965d4c] font-medium mb-3"
+          >
+            เย้! ขอให้คำอธิษฐานทุกข้อเป็นจริงนะ ✨
+          </h3>
+          <p
+            id="after-blow-message"
+            class="font-body-th text-[17px] text-[#231f1e] leading-[1.9]"
+          >
+            ไม่ว่าปีนี้เธอจะอยากทำอะไร หรืออยากไปที่ไหน เค้าจะคอยซัพพอร์ตและเดินจับมือเธออยู่ข้างๆ เสมอเลยนะ สุขสันต์วันเกิดครับ
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: 3D Wax-Sealed Birthday Letter
+         ====================================================================== -->
+    <section id="letter-section" class="py-12 md:py-20 px-4 sm:px-6 max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
+          A Letter for You
+        </p>
+        <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium">
+          จดหมายวันเกิดถึงคนเก่งของเค้า
+        </h2>
+      </div>
+
+      <div class="envelope-wrapper">
+        <!-- Closed Envelope State -->
+        <div
+          id="envelope-closed-state"
+          class="envelope-card rounded-[28px] p-8 sm:p-12 md:p-16 text-center relative overflow-hidden"
+        >
+          <!-- Decorative Envelope Flap Lines -->
+          <svg
+            class="absolute inset-x-0 top-0 w-full h-36 text-[#c89d54]/30 pointer-events-none"
+            viewBox="0 0 600 160"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path d="M0,0 L300,140 L600,0" fill="rgba(233, 223, 208, 0.55)" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+
+          <div class="relative z-10 flex flex-col items-center">
+            <span class="font-display-en text-xs tracking-[0.2em] text-[#7d726d] mb-2">
+              PRIVATE &amp; CONFIDENTIAL
+            </span>
+            <p
+              id="envelope-recipient-label"
+              class="font-heading-th text-xl sm:text-2xl text-[#231f1e] font-medium mb-8"
+            >
+              สำหรับคนพิเศษของเค้า
+            </p>
+
+            <!-- Interactive Rose-Gold Wax Seal Button -->
+            <button
+              id="open-envelope-btn"
+              type="button"
+              class="wax-seal-btn mb-5 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c89d54]"
+              aria-label="แตะตราครั่งเพื่อเปิดซองจดหมาย"
+            >
+              <span class="text-[#fbf7f0] text-2xl drop-shadow" aria-hidden="true">♥</span>
+            </button>
+
+            <p
+              id="envelope-seal-hint"
+              class="font-body-th text-sm sm:text-[15px] text-[#7d726d]"
+            >
+              แตะที่ตราครั่งสีโรสโกลด์เพื่อเปิดซองจดหมาย
+            </p>
+          </div>
+        </div>
+
+        <!-- Opened Editorial Letter State -->
+        <article
+          id="envelope-open-state"
+          class="hidden letter-sheet rounded-[28px] p-7 sm:p-11 md:p-14 relative"
+        >
+          <div class="flex items-center justify-between border-b border-[#c89d54]/30 pb-4 mb-7">
+            <span class="font-display-en text-sm text-[#965d4c]">
+              BIRTHDAY EDITION · STARLIGHT &amp; SEA
+            </span>
+            <button
+              id="close-letter-btn"
+              type="button"
+              class="text-xs font-body-th text-[#7d726d] hover:text-[#231f1e] px-3 py-1.5 rounded-full border border-[#c89d54]/30 cursor-pointer"
+            >
+              พับเก็บใส่ซอง ✕
+            </button>
+          </div>
+
+          <h3
+            id="letter-salutation"
+            class="font-heading-th text-2xl text-[#231f1e] font-medium mb-6"
+          >
+            ถึง ที่รักของเค้า,
+          </h3>
+
+          <div id="letter-paragraphs" class="space-y-4">
+            <!-- Populated by config.js -->
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-[#c89d54]/25 flex flex-col items-end text-right">
+            <p
+              id="letter-closing"
+              class="font-body-th text-[17px] text-[#544b47] mb-1"
+            >
+              รักเธอมากๆ นะครับ,
+            </p>
+            <p
+              id="letter-sender"
+              class="font-heading-th text-2xl text-[#965d4c] font-medium"
+            >
+              คนที่รักเธอที่สุด
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: 3D Flip Polaroid Memories
+         ====================================================================== -->
+    <section id="memories-section" class="py-14 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
+          Our Favorite Chapters
+        </p>
+        <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium mb-3">
+          เรื่องราวและความทรงจำของเรา
+        </h2>
+        <p class="font-body-th text-[16px] text-[#544b47]">
+          แตะที่รูปโพลารอยด์แต่ละใบเพื่อพลิกอ่านข้อความลับด้านหลังรูปได้เลยนะ ↻
+        </p>
+      </div>
+
+      <div
+        id="memories-grid"
+        class="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8"
+      >
+        <!-- Populated by app.js from config.js -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4: Starlight Wishes Over the Coastal Meadow (Closing Scene)
+         ====================================================================== -->
+    <section
+      id="wishes-section"
+      class="relative mt-12 pt-20 pb-36 px-4 sm:px-6 overflow-hidden text-[#fbf7f0]"
+      style="background: linear-gradient(180deg, #091326 0%, #142844 55%, #1c3b36 100%);"
+    >
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <p class="font-serif-italic text-[#f2dfb6] text-xl md:text-2xl mb-1">
+            Four Stars Over the Sea
+          </p>
+          <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#fbf7f0] font-medium mb-3">
+            เก็บดาวคำอวยพรเหนือทุ่งหญ้าและทะเล
+          </h2>
+          <p class="font-body-th text-[16px] text-[#fbf7f0]/80">
+            แตะที่ดวงดาวแต่ละดวงเพื่อเปิดอ่านคำอวยพรและของขวัญที่ซ่อนไว้ให้เธอนะ ★
+          </p>
+        </div>
+
+        <!-- 4 Star Wish Orbs -->
+        <div
+          id="star-wishes-grid"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+        >
+          <!-- Populated by app.js from config.js -->
+        </div>
+
+        <!-- Displayed Star Wish Card -->
+        <div
+          id="star-wish-display"
+          class="hidden rounded-3xl p-7 sm:p-9 bg-[#fbf7f0] text-[#231f1e] border-2 border-[#e8c792] shadow-2xl max-w-2xl mx-auto text-center"
+        >
+          <span
+            id="star-wish-label"
+            class="inline-block px-3.5 py-1 rounded-full bg-[#e8c792]/30 text-[#965d4c] text-xs font-body-th font-medium mb-3"
+          >
+            ดาวดวงที่ 1
+          </span>
+          <h3
+            id="star-wish-title"
+            class="font-heading-th text-2xl text-[#231f1e] font-medium mb-3"
+          >
+            ขอให้ยิ้มกว้างเหมือนเวลาเห็นทะเล
+          </h3>
+          <p
+            id="star-wish-detail"
+            class="font-body-th text-[17px] text-[#544b47] leading-[1.85]"
+          >
+            ขอให้ปีนี้ใจดีกับเธอเยอะๆ มีเรื่องให้หัวเราะและยิ้มได้ทุกวันโดยไม่ต้องฝืนเลยนะ
+          </p>
+        </div>
+
+        <div class="mt-14 text-center">
+          <p class="font-display-en text-2xl md:text-3xl text-[#f2dfb6] mb-2">
+            Happy Birthday, My Favorite Person
+          </p>
+          <p class="font-body-th text-sm text-[#fbf7f0]/65">
+            สร้างด้วยความตั้งใจเผื่อให้เธอยิ้มในวันเกิดปีนี้นะ ✦
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer Emerald Meadow Grass Silhouette -->
+      <div class="meadow-layer" aria-hidden="true">
+        <svg class="w-full h-24 sm:h-28 block" viewBox="0 0 1440 160" preserveAspectRatio="none">
+          <path d="M0,95 Q360,55 720,88 T1440,75 L1440,160 L0,160 Z" fill="#163327" />
+          <g class="grass-sway-medium" fill="#2b5c44">
+            <path d="M0,120 Q420,85 880,115 T1440,100 L1440,160 L0,160 Z" />
+            <path d="M90,140 Q115,75 140,45 Q122,98 110,140 Z" />
+            <path d="M310,140 Q290,78 270,48 Q298,98 325,140 Z" />
+            <path d="M580,140 Q608,72 636,42 Q612,96 598,140 Z" />
+            <path d="M890,140 Q870,76 850,48 Q878,96 906,140 Z" />
+            <path d="M1180,140 Q1208,72 1236,42 Q1212,96 1198,140 Z" />
+          </g>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- Load User Config first, then Interactive App Engine -->
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+
