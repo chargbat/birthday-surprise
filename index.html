@@ -3,431 +3,671 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Happy Birthday — สำหรับคนพิเศษของเค้า ✨</title>
-  <meta name="description" content="เว็บไซต์เซอร์ไพรส์วันเกิดสุดพิเศษ ใต้แสงดาว ริมทะเล และทุ่งหญ้าสีเขียว" />
-  <meta name="theme-color" content="#091326" />
+  <title>Happy Birthday — ค่ำคืนใต้แสงดาวและเสียงคลื่นริมทะเล</title>
+  <meta name="description" content="ของขวัญวันเกิดชิ้นพิเศษ ใต้แสงดาว ริมทะเล และทุ่งหญ้าชายฝั่ง" />
+  <meta name="theme-color" content="#060b14" />
 
-  <!-- Curated Anti-AI Typography: Italiana + Instrument Serif (Latin) & Pridi + Krub (Thai) -->
+  <!-- Curated Anti-AI Typography: Italiana + Instrument Serif (Latin), Pridi + Krub (Thai), Caveat (Handwritten) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Italiana&family=Krub:wght@300;400;500;600&family=Pridi:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Instrument+Serif:ital@0;1&family=Italiana&family=Krub:wght@300;400;500;600&family=Pridi:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
 
-  <!-- Tailwind CSS Play CDN for responsive utility styling -->
+  <!-- Tailwind CSS Play CDN for responsive layout utilities -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom Design Tokens & Animations -->
+  <!-- Artisanal Design System & Micro-Interactions -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body class="antialiased selection:bg-[#e8c792]/40 selection:text-[#231f1e]">
+<body class="antialiased selection:bg-[#e7c468]/35 selection:text-[#1b1715]">
 
-  <!-- Confetti Celebration Canvas Overlay -->
+  <!-- Tactile Analog Film Grain Overlay -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Confetti & Starlight Celebration Canvas -->
   <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
-  <!-- Floating Music Box & Sea Breeze Toggle (Top Right, Safe for Tablet/Mobile) -->
+  <!-- Ambient Golden Dust Motes & Interactive Cursor/Touch Stardust Canvas -->
+  <canvas id="ambient-fx-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Music Box & Sea Breeze Pill (Top Right) -->
   <button
     id="audio-toggle-btn"
     type="button"
     aria-pressed="false"
-    class="audio-floating-btn flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-body-th cursor-pointer"
+    class="floating-audio-pill"
   >
-    <span
-      id="audio-vinyl-icon"
-      class="vinyl-spin w-6 h-6 rounded-full bg-gradient-to-tr from-[#c89d54] via-[#fbf7f0] to-[#b87d6b] flex items-center justify-center text-[#091326] text-xs font-bold shadow-inner"
-      aria-hidden="true"
-    >
-      ♪
+    <span id="audio-wave-indicator" class="sound-wave-bars" aria-hidden="true">
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
     </span>
     <span id="audio-toggle-label">เปิดเพลงคลอเบาๆ</span>
   </button>
 
   <!-- ========================================================================
-       HERO SCENE: Starlit Sky, Shimmering Ocean & Swaying Green Meadow
+       HERO PANORAMA: Nocturnal Starlit Sky, Moonlit Sea & Coastal Meadow
        ======================================================================== -->
-  <header class="scenic-hero relative px-4 pt-16 pb-36 md:pb-44 flex flex-col items-center justify-center">
-    <!-- Interactive Starlight, Shooting Stars, Ocean Sparkles & Meadow Fireflies Canvas -->
+  <header class="scenic-hero">
+    <!-- Full-Bleed Interactive Starlight, Shooting Stars, Sea Shimmer & Fireflies Canvas -->
     <canvas id="starlight-canvas" title="แตะบนท้องฟ้าเพื่อเสกดาวตก"></canvas>
 
-    <!-- Subtle Sky Interaction Hint -->
-    <div class="relative z-10 mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#091326]/55 border border-[#e8c792]/25 text-[#f2dfb6] text-xs md:text-sm font-body-th backdrop-blur-md pointer-events-none">
-      <span class="inline-block w-2 h-2 rounded-full bg-[#f2dfb6] animate-ping"></span>
-      <span>แตะบนท้องฟ้าเพื่อเสกดาวตกให้เธอนะ ✦</span>
+    <!-- Delicate Sky Interaction Whisper -->
+    <div class="hero-sky-whisper">
+      <svg class="w-3.5 h-3.5 text-[#f4dd9e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M12 3v3m0 12v3M3 12h3m12 0h3m-2.6-6.4-2.1 2.1m-6.6 6.6-2.1 2.1m10.8 0-2.1-2.1M7.7 7.7 5.6 5.6" stroke-linecap="round"/>
+      </svg>
+      <span>แตะบนท้องฟ้าเพื่อเสกดาวตกให้เธอนะ</span>
     </div>
 
-    <!-- Center Editorial Romance Card -->
-    <div class="hero-editorial-frame w-full max-w-xl mx-auto rounded-[28px] px-6 py-9 md:px-12 md:py-12 text-center text-[#fbf7f0]">
-      <p
-        id="hero-date-badge"
-        class="font-display-en text-xs md:text-sm text-[#f2dfb6] tracking-[0.22em] mb-3"
-      >
-        SPECIAL DAY · 2026
+    <!-- Center Smoky-Glass Editorial Frame with Double-Hairline Gold Border -->
+    <div class="hero-editorial-frame">
+      <p id="hero-date-badge" class="hero-date-badge font-serif-italic">
+        A Night Beneath the Stars
       </p>
 
-      <h1
-        id="hero-title"
-        class="font-display-en text-5xl sm:text-6xl md:text-7xl text-[#fbf7f0] leading-[1.08] mb-3 drop-shadow-sm"
-      >
+      <h1 id="hero-title" class="hero-main-title font-display-en">
         Happy Birthday
       </h1>
 
-      <div class="flex items-center justify-center gap-3 my-3">
-        <span class="h-px w-10 bg-[#e8c792]/45"></span>
-        <p class="font-serif-italic text-xl md:text-2xl text-[#f2dfb6]">
-          to my dearest
-        </p>
-        <span class="h-px w-10 bg-[#e8c792]/45"></span>
+      <div class="hero-ornament-divider" aria-hidden="true">
+        <span class="ornament-line"></span>
+        <svg class="w-4 h-4 text-[#ecd5a8]/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 2.5c.8 4.6 4.9 8.7 9.5 9.5-4.6.8-8.7 4.9-9.5 9.5-.8-4.6-4.9-8.7-9.5-9.5 4.6-.8 8.7-4.9 9.5-9.5Z" stroke-linejoin="round"/>
+        </svg>
+        <span class="ornament-line"></span>
       </div>
 
-      <h2
-        id="hero-recipient"
-        class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#f5df9d] font-medium mb-4"
-      >
+      <h2 id="hero-recipient" class="hero-recipient-name font-heading-th">
         ที่รักของเค้า
       </h2>
 
-      <p
-        id="hero-subtitle"
-        class="font-body-th text-[16px] md:text-[18px] text-[#fbf7f0]/90 max-w-md mx-auto leading-[1.85] mb-8"
-      >
+      <p id="hero-subtitle" class="hero-subtitle font-body-th">
         สุขสันต์วันเกิดนะคนเก่ง ขอบคุณที่เป็นเหมือนทะเลที่อบอุ่นและเป็นดาวที่สว่างที่สุดในชีวิตเค้าเสมอมา
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-        <a
-          href="#cake-section"
-          class="w-full sm:w-auto min-h-[48px] px-7 py-3.5 rounded-full bg-gradient-to-r from-[#e8c792] via-[#f2dfb6] to-[#d6ae6b] text-[#1a1615] font-body-th font-medium text-[16px] shadow-lg hover:brightness-105 active:scale-95 transition flex items-center justify-center gap-2"
-        >
+      <div class="hero-cta-group">
+        <a href="#cake-section" class="btn-primary-gold">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 3c1.5 2 1.5 4 0 5.5C10.5 7 10.5 5 12 3Z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 8.5v3.5" stroke-linecap="round"/>
+            <path d="M5 15.5c0-1.9 1.6-3.5 3.5-3.5h7c1.9 0 3.5 1.6 3.5 3.5V20H5v-4.5Z" stroke-linejoin="round"/>
+            <path d="M3 20h18" stroke-linecap="round"/>
+          </svg>
           <span>ไปเป่าเค้กอธิษฐานกัน</span>
-          <span aria-hidden="true">🎂</span>
         </a>
-        <a
-          href="#letter-section"
-          class="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-[#f2dfb6]/35 text-[#fbf7f0] font-body-th text-[16px] active:scale-95 transition flex items-center justify-center gap-2"
-        >
+        <a href="#letter-section" class="btn-secondary-glass">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" />
+            <path d="m3.5 6.5 8.5 6.5 8.5-6.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <span>อ่านจดหมายของเค้า</span>
-          <span aria-hidden="true">💌</span>
         </a>
       </div>
     </div>
 
-    <!-- Shimmering Moonlit Sea Horizon -->
-    <div class="ocean-layer" aria-hidden="true">
-      <div class="ocean-wave-shimmer"></div>
-      <!-- Delicate SVG Wave Lines on the Sea -->
-      <svg class="w-full h-full opacity-45" viewBox="0 0 1440 220" preserveAspectRatio="none">
-        <path
-          d="M0,24 C320,38 520,8 760,22 C1020,36 1220,10 1440,24 L1440,220 L0,220 Z"
-          fill="rgba(18, 45, 72, 0.55)"
-        />
-        <path
-          d="M420,45 Q720,32 1020,45"
-          stroke="#f5dfb5"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          fill="none"
-          opacity="0.65"
-        />
-        <path
-          d="M490,72 Q720,62 950,72"
-          stroke="#f5dfb5"
-          stroke-width="1.2"
-          stroke-linecap="round"
-          fill="none"
-          opacity="0.45"
-        />
-        <path
-          d="M550,102 Q720,94 890,102"
-          stroke="#f5dfb5"
-          stroke-width="1"
-          stroke-linecap="round"
-          fill="none"
-          opacity="0.35"
-        />
-      </svg>
-    </div>
+    <!-- Organic Painterly Coastal Horizon: Moonlit Sea Waves & Undulating Botanical Meadow -->
+    <div class="ocean-horizon-layer" aria-hidden="true">
+      <svg class="w-full h-full block" viewBox="0 0 1440 280" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="moonlitSeaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0b1d32" stop-opacity="0.78" />
+            <stop offset="48%" stop-color="#0f2740" stop-opacity="0.95" />
+            <stop offset="100%" stop-color="#0d2029" stop-opacity="1" />
+          </linearGradient>
+          <linearGradient id="specularGoldLine" x1="15%" y1="0%" x2="85%" y2="0%">
+            <stop offset="0%" stop-color="#ecd5a8" stop-opacity="0" />
+            <stop offset="30%" stop-color="#ecd5a8" stop-opacity="0.45" />
+            <stop offset="50%" stop-color="#fff4d6" stop-opacity="0.88" />
+            <stop offset="70%" stop-color="#ecd5a8" stop-opacity="0.45" />
+            <stop offset="100%" stop-color="#ecd5a8" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="distantHeadland" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0d211b" />
+            <stop offset="100%" stop-color="#081410" />
+          </linearGradient>
+          <linearGradient id="midCoastalHill" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#143025" />
+            <stop offset="60%" stop-color="#1b3e30" />
+            <stop offset="100%" stop-color="#10261d" />
+          </linearGradient>
+          <linearGradient id="foreMeadowSlope" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#224c3a" />
+            <stop offset="100%" stop-color="#163528" />
+          </linearGradient>
+        </defs>
 
-    <!-- Lush Swaying Emerald & Sage Green Meadow Grass Silhouette -->
-    <div class="meadow-layer" aria-hidden="true">
-      <svg class="w-full h-28 sm:h-36 md:h-44 block" viewBox="0 0 1440 220" preserveAspectRatio="none">
-        <!-- Back Deep Emerald Hill & Distant Grass -->
+        <!-- Deep Moonlit Sea Horizon -->
         <path
-          d="M0,145 Q360,95 740,135 T1440,120 L1440,220 L0,220 Z"
-          fill="#163327"
+          d="M0,38 C280,26 520,44 740,34 C980,24 1210,42 1440,32 L1440,280 L0,280 Z"
+          fill="url(#moonlitSeaGrad)"
         />
-        <!-- Mid-layer Swaying Meadow Blades -->
-        <g class="grass-sway-slow" fill="#234d3a">
-          <path d="M0,165 Q240,125 560,155 T1160,138 T1440,155 L1440,220 L0,220 Z" />
-          <path d="M40,170 Q55,105 78,78 Q68,125 65,170 Z" />
-          <path d="M120,175 Q105,110 92,85 Q115,125 135,175 Z" />
-          <path d="M210,168 Q235,98 260,68 Q242,120 232,168 Z" />
-          <path d="M340,172 Q325,112 308,82 Q335,122 356,172 Z" />
-          <path d="M480,165 Q505,96 528,66 Q508,118 498,165 Z" />
-          <path d="M620,175 Q600,115 585,84 Q612,126 635,175 Z" />
-          <path d="M770,168 Q795,102 820,72 Q800,122 790,168 Z" />
-          <path d="M910,170 Q892,108 875,78 Q902,122 925,170 Z" />
-          <path d="M1060,166 Q1085,95 1110,64 Q1090,118 1080,166 Z" />
-          <path d="M1210,172 Q1190,108 1172,80 Q1200,125 1228,172 Z" />
-          <path d="M1350,165 Q1375,100 1398,70 Q1380,120 1368,165 Z" />
+
+        <!-- Delicate Golden Specular Moon-Path Reflections on Rolling Swells -->
+        <g class="sea-swell-shimmer">
+          <path d="M360,48 C540,41 680,52 840,45 C940,41 1030,48 1110,44" fill="none" stroke="url(#specularGoldLine)" stroke-width="1.6" stroke-linecap="round" />
+          <path d="M430,66 C590,59 730,69 890,62 C960,59 1010,64 1050,62" fill="none" stroke="url(#specularGoldLine)" stroke-width="1.35" stroke-linecap="round" opacity="0.85" />
+          <path d="M480,86 C640,80 770,89 930,83" fill="none" stroke="url(#specularGoldLine)" stroke-width="1.15" stroke-linecap="round" opacity="0.7" />
+          <path d="M530,108 C675,103 790,111 910,106" fill="none" stroke="url(#specularGoldLine)" stroke-width="1" stroke-linecap="round" opacity="0.55" />
+          <path d="M590,130 C700,126 780,132 860,128" fill="none" stroke="url(#specularGoldLine)" stroke-width="0.9" stroke-linecap="round" opacity="0.4" />
         </g>
 
-        <!-- Foreground Lush Green Grass & Coastal Wildflowers -->
-        <g class="grass-sway-medium" fill="#346b51">
-          <path d="M0,185 Q420,150 860,175 T1440,168 L1440,220 L0,220 Z" />
-          <path d="M18,195 Q38,118 64,82 Q46,138 38,195 Z" />
-          <path d="M85,192 Q112,115 142,80 Q118,140 105,192 Z" />
-          <path d="M165,195 Q148,125 130,92 Q158,140 182,195 Z" />
-          <path d="M275,190 Q302,112 332,76 Q308,136 295,190 Z" />
-          <path d="M395,195 Q378,122 358,88 Q388,138 412,195 Z" />
-          <path d="M535,192 Q565,114 595,78 Q572,138 556,192 Z" />
-          <path d="M675,195 Q655,125 635,92 Q665,142 692,195 Z" />
-          <path d="M830,190 Q860,115 892,80 Q868,138 852,190 Z" />
-          <path d="M975,195 Q955,120 935,88 Q965,140 992,195 Z" />
-          <path d="M1135,190 Q1165,112 1196,75 Q1172,136 1155,190 Z" />
-          <path d="M1285,195 Q1265,122 1245,90 Q1275,140 1302,195 Z" />
-          <path d="M1390,192 Q1412,120 1432,88 Q1415,142 1408,192 Z" />
-        </g>
-
-        <!-- Sage Highlight Blades & Dew Sparkles -->
-        <g class="grass-sway-fast" fill="#689f7c">
-          <path d="M62,205 Q88,132 116,96 Q94,152 80,205 Z" opacity="0.85" />
-          <path d="M245,205 Q225,136 205,102 Q232,152 260,205 Z" opacity="0.75" />
-          <path d="M455,205 Q482,130 512,95 Q488,150 472,205 Z" opacity="0.85" />
-          <path d="M735,205 Q762,134 790,98 Q768,152 752,205 Z" opacity="0.8" />
-          <path d="M1035,205 Q1015,135 995,102 Q1022,152 1052,205 Z" opacity="0.75" />
-          <path d="M1325,205 Q1352,130 1380,95 Q1358,150 1342,205 Z" opacity="0.85" />
-          <!-- Tiny Glowing Wildflower Blossoms in the Grass -->
-          <circle cx="116" cy="96" r="3.5" fill="#f5dfb5" />
-          <circle cx="332" cy="76" r="3" fill="#f2c6b6" />
-          <circle cx="512" cy="95" r="3.5" fill="#f5dfb5" />
-          <circle cx="790" cy="98" r="3" fill="#f5dfb5" />
-          <circle cx="1110" cy="64" r="3.5" fill="#f2c6b6" />
-          <circle cx="1380" cy="95" r="3" fill="#f5dfb5" />
-        </g>
-
-        <!-- Seamless Transition Curve into the Warm Ivory Editorial Section -->
+        <!-- Distant Painterly Coastal Headland -->
         <path
-          d="M0,202 Q720,184 1440,202 L1440,222 L0,222 Z"
-          fill="#fbf7f0"
+          d="M0,152 C190,124 410,142 640,164 C890,188 1140,132 1440,148 L1440,280 L0,280 Z"
+          fill="url(#distantHeadland)"
+        />
+
+        <!-- Undulating Midground Coastal Meadow Hills -->
+        <path
+          d="M0,184 C260,154 530,196 820,174 C1080,154 1270,168 1440,186 L1440,280 L0,280 Z"
+          fill="url(#midCoastalHill)"
+        />
+
+        <!-- Foreground Velvet Meadow Contour -->
+        <path
+          d="M0,214 C310,188 610,224 940,202 C1160,187 1320,198 1440,212 L1440,280 L0,280 Z"
+          fill="url(#foreMeadowSlope)"
+        />
+
+        <!-- Seamless Painterly Paper Crest Transition into Warm Candlelit Courtyard -->
+        <path
+          d="M0,252 C420,232 980,242 1440,254 L1440,282 L0,282 Z"
+          fill="#f6efe4"
         />
       </svg>
     </div>
   </header>
 
-  <!-- ========================================================================
-       SECTION 1: Interactive Birthday Cake (Make a Wish & Blow Out Candle)
-       ======================================================================== -->
-  <main>
-    <section id="cake-section" class="py-16 md:py-24 px-4 sm:px-6 max-w-4xl mx-auto">
-      <div
-        id="cake-stage-card"
-        class="cake-stage-card rounded-[32px] p-6 sm:p-10 md:p-14 text-center"
-      >
-        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
-          Make a Birthday Wish
-        </p>
-        <h2
-          id="cake-title"
-          class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium mb-3"
-        >
-          หลับตาอธิษฐาน แล้วเป่าเทียนกันนะ
+  <main class="courtyard-main">
+    <!-- ======================================================================
+         GROUNDED CANDLELIT CONSERVATORY FRAME & WARM AMBIENT GLOW
+         Static architectural double-hairline border & warm radial light pools
+         ====================================================================== -->
+    <div class="courtyard-bg-decor" aria-hidden="true">
+      <div class="courtyard-glow-orb courtyard-glow-top"></div>
+      <div class="courtyard-glow-orb courtyard-glow-mid"></div>
+      <div class="courtyard-page-frame"></div>
+    </div>
+
+    <!-- Golden Constellation Thread Bridge: Hero Meadow -> Patisserie Cake -->
+    <div class="constellation-bridge constellation-bridge-top" aria-hidden="true">
+      <span class="constellation-thread-line"></span>
+      <svg class="constellation-star-node" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2c.9 5.2 4.8 9.1 10 10-5.2.9-9.1 4.8-10 10-.9-5.2-4.8-9.1-10-10 5.2-.9 9.1-4.8 10-10Z" fill="#d4a359" fill-opacity="0.35" stroke="#b88339" stroke-width="1.2"/>
+      </svg>
+      <span class="constellation-thread-line"></span>
+    </div>
+
+    <!-- ======================================================================
+         SECTION 1: Artisanal 3D-Shaded Patisserie Birthday Cake
+         ====================================================================== -->
+    <section id="cake-section" class="cake-section">
+      <div id="cake-stage-card" class="cake-stage-card reveal-on-scroll">
+        <!-- Bespoke Corner Gold Filigree Flourishes -->
+        <div class="card-filigree-frame" aria-hidden="true">
+          <span class="filigree-corner filigree-tl"></span>
+          <span class="filigree-corner filigree-tr"></span>
+          <span class="filigree-corner filigree-bl"></span>
+          <span class="filigree-corner filigree-br"></span>
+        </div>
+
+        <h2 id="cake-title" class="section-heading-th font-heading-th">
+          หลับตาอธิษฐาน แล้วเป่าเทียนด้วยกันนะ
         </h2>
-        <p
-          id="wish-status-text"
-          class="font-body-th text-[16px] md:text-[17px] text-[#544b47] max-w-lg mx-auto mb-6"
-        >
-          แตะค้างที่เปลวเทียนหรือปุ่มด้านล่างเพื่ออธิษฐาน (หรือกดปุ่มเป่าผ่านไมค์) แล้วปล่อยมือเพื่อดับเทียน
+        <p id="wish-status-text" class="section-subcopy-th font-body-th">
+          แตะค้างที่เปลวเทียนเพื่ออธิษฐาน (หรือกดปุ่มเป่าผ่านไมค์) แล้วปล่อยมือเพื่อเป่าเทียน
         </p>
 
-        <!-- Handcrafted Artisanal SVG Birthday Cake with Interactive Flickering Candle -->
-        <div class="relative w-full max-w-[320px] mx-auto my-4 select-none">
+        <!-- Multi-Layered 3D Cylindrical French Patisserie Cake SVG -->
+        <div class="patisserie-cake-stage select-none">
           <svg
-            viewBox="0 0 320 310"
+            viewBox="0 0 360 340"
             class="w-full h-auto overflow-visible"
             role="img"
-            aria-label="เค้กวันเกิดพร้อมเทียนที่แตะเพื่อเป่าได้"
+            aria-label="เค้กวันเกิดสไตล์ฝรั่งเศสพร้อมเทียนไขผึ้งสำหรับอธิษฐาน"
           >
             <defs>
-              <radialGradient id="flameAuraGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ffdfa0" stop-opacity="0.85" />
-                <stop offset="55%" stop-color="#f5a65b" stop-opacity="0.3" />
-                <stop offset="100%" stop-color="#f5a65b" stop-opacity="0" />
+              <!-- Candle Flame Multi-Stop Glow Aura -->
+              <radialGradient id="amberFlameBloom" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe7a8" stop-opacity="0.92" />
+                <stop offset="42%" stop-color="#f8b259" stop-opacity="0.42" />
+                <stop offset="75%" stop-color="#e7853b" stop-opacity="0.12" />
+                <stop offset="100%" stop-color="#e7853b" stop-opacity="0" />
               </radialGradient>
-              <linearGradient id="cakeTierTop" x1="0%" y1="0%" x2="100%" y2="0%">
+
+              <!-- Outer Flame Gradient -->
+              <linearGradient id="outerFlameGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stop-color="#ffd97d" />
+                <stop offset="55%" stop-color="#f79d3e" />
+                <stop offset="100%" stop-color="#d96b27" />
+              </linearGradient>
+
+              <!-- Beeswax Ribbed Taper Candle Cylindrical Shading -->
+              <linearGradient id="beeswaxCylinder" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e5cda7" />
+                <stop offset="28%" stop-color="#fff9ee" />
+                <stop offset="65%" stop-color="#f4e2c2" />
+                <stop offset="100%" stop-color="#cbb089" />
+              </linearGradient>
+
+              <!-- Top Tier Cylindrical Buttercream Sponge (3D Horizontal Lighting) -->
+              <linearGradient id="topTierCylinder" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e2cfb8" />
+                <stop offset="22%" stop-color="#fcf6ee" />
+                <stop offset="48%" stop-color="#fffdf9" />
+                <stop offset="78%" stop-color="#efe0cc" />
+                <stop offset="100%" stop-color="#cfb79c" />
+              </linearGradient>
+
+              <!-- Top Tier Elliptical Crown Surface -->
+              <linearGradient id="topTierCrown" x1="15%" y1="0%" x2="85%" y2="100%">
+                <stop offset="0%" stop-color="#fffefa" />
+                <stop offset="60%" stop-color="#f8eee0" />
+                <stop offset="100%" stop-color="#e8d6c0" />
+              </linearGradient>
+
+              <!-- Bottom Tier Cylindrical Buttercream Sponge (3D Horizontal Lighting) -->
+              <linearGradient id="bottomTierCylinder" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d7c0a5" />
+                <stop offset="20%" stop-color="#f8efe2" />
+                <stop offset="46%" stop-color="#fffcf7" />
+                <stop offset="76%" stop-color="#ead7be" />
+                <stop offset="100%" stop-color="#c3a88a" />
+              </linearGradient>
+
+              <!-- Bottom Tier Elliptical Shoulder Surface -->
+              <linearGradient id="bottomTierCrown" x1="10%" y1="0%" x2="90%" y2="100%">
                 <stop offset="0%" stop-color="#fffdf9" />
-                <stop offset="50%" stop-color="#f9efe2" />
-                <stop offset="100%" stop-color="#efe0cc" />
+                <stop offset="55%" stop-color="#f3e5d2" />
+                <stop offset="100%" stop-color="#dec8ad" />
               </linearGradient>
-              <linearGradient id="cakeTierBottom" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#f7ede0" />
-                <stop offset="50%" stop-color="#eedbc6" />
-                <stop offset="100%" stop-color="#dfc6ab" />
+
+              <!-- Rose-Champagne Mascarpone Glaze Drip Shading -->
+              <linearGradient id="mascarponeGlaze" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#eebeb0" />
+                <stop offset="35%" stop-color="#f7d5ca" />
+                <stop offset="75%" stop-color="#d69684" />
+                <stop offset="100%" stop-color="#b97765" />
               </linearGradient>
-              <linearGradient id="roseFrosting" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#e5b2a3" />
-                <stop offset="100%" stop-color="#c68573" />
+
+              <!-- Shaded Ruby Berry Gradient -->
+              <radialGradient id="rubyBerryGrad" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#f2847c" />
+                <stop offset="45%" stop-color="#c43c39" />
+                <stop offset="85%" stop-color="#871d1d" />
+                <stop offset="100%" stop-color="#5e1010" />
+              </radialGradient>
+
+              <!-- Porcelain Pedestal Stand Gradients -->
+              <linearGradient id="porcelainPlate" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#cabaa6" />
+                <stop offset="25%" stop-color="#f7f1e8" />
+                <stop offset="52%" stop-color="#ffffff" />
+                <stop offset="80%" stop-color="#e5dacb" />
+                <stop offset="100%" stop-color="#b8a58e" />
+              </linearGradient>
+
+              <linearGradient id="porcelainPillar" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#bfb09c" />
+                <stop offset="32%" stop-color="#f2ebe0" />
+                <stop offset="55%" stop-color="#fbf7f1" />
+                <stop offset="82%" stop-color="#d8cbb8" />
+                <stop offset="100%" stop-color="#a89680" />
+              </linearGradient>
+
+              <radialGradient id="standFloorShadow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#1b1715" stop-opacity="0.24" />
+                <stop offset="65%" stop-color="#1b1715" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#1b1715" stop-opacity="0" />
+              </radialGradient>
+
+              <!-- Gold Foil Shimmer -->
+              <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff2c2" />
+                <stop offset="50%" stop-color="#d4a359" />
+                <stop offset="100%" stop-color="#946325" />
               </linearGradient>
             </defs>
 
-            <!-- Smoke Wisp (Appears when candle is blown out) -->
-            <g id="candle-smoke" class="candle-smoke">
-              <path
-                d="M160,72 Q148,52 164,36 Q178,20 156,4"
-                fill="none"
-                stroke="#9e948e"
-                stroke-width="2.5"
-                stroke-linecap="round"
-              />
-              <circle cx="162" cy="24" r="3" fill="#b8aea8" opacity="0.6" />
-            </g>
+            <!-- Soft Floor Shadow Beneath Pedestal -->
+            <ellipse cx="180" cy="318" rx="118" ry="14" fill="url(#standFloorShadow)" />
 
-            <!-- Interactive Candle Flame & Warm Glow Aura -->
-            <g id="candle-flame" class="candle-flame-group" title="แตะเพื่อเป่าเทียน">
-              <circle
-                cx="160"
-                cy="62"
-                r="46"
-                fill="url(#flameAuraGrad)"
-                class="candle-aura"
-              />
-              <!-- Outer Golden Flame -->
-              <path
-                d="M160,30 C172,48 175,65 160,76 C145,65 148,48 160,30 Z"
-                fill="#ffae42"
-              />
-              <!-- Inner Bright Flame -->
-              <path
-                d="M160,40 C167,52 168,64 160,73 C152,64 153,52 160,40 Z"
-                fill="#fff3b0"
-              />
-              <!-- Blue Base Core -->
-              <ellipse cx="160" cy="72" rx="4" ry="2.5" fill="#7ec8ff" opacity="0.8" />
-            </g>
+            <!-- ============================================================
+                 PORCELAIN PEDESTAL CAKE STAND (Fluted Stem & Elliptical Rim)
+                 ============================================================ -->
+            <!-- Pedestal Foot Base -->
+            <ellipse cx="180" cy="313" rx="64" ry="9.5" fill="url(#porcelainPillar)" stroke="#b8965d" stroke-width="0.9" />
+            <ellipse cx="180" cy="311" rx="58" ry="6.5" fill="#f5efe6" />
 
-            <!-- Candle Wick & Striped Champagne Candle Stick -->
-            <line x1="160" y1="75" x2="160" y2="83" stroke="#2c221e" stroke-width="2" />
-            <rect
-              x="153"
-              y="82"
-              width="14"
-              height="52"
-              rx="4"
-              fill="#fffaf2"
-              stroke="#c89d54"
-              stroke-width="1.5"
-            />
-            <path d="M153,95 L167,103 M153,110 L167,118 M153,125 L167,133" stroke="#d89b88" stroke-width="2.2" />
-
-            <!-- Top Tier Strawberries & Emerald Mint Leaves -->
-            <g>
-              <!-- Mint Leaves -->
-              <path d="M115,134 Q102,124 98,135 Q106,142 115,134 Z" fill="#467e60" />
-              <path d="M205,134 Q218,124 222,135 Q214,142 205,134 Z" fill="#467e60" />
-              <!-- Berries -->
-              <path d="M124,122 C132,122 135,136 124,138 C113,136 116,122 124,122 Z" fill="#c95b54" />
-              <path d="M196,122 C204,122 207,136 196,138 C185,136 188,122 196,122 Z" fill="#c95b54" />
-              <circle cx="144" cy="134" r="4" fill="#e8c792" />
-              <circle cx="176" cy="134" r="4" fill="#e8c792" />
-            </g>
-
-            <!-- Top Cake Tier -->
-            <rect
-              x="92"
-              y="134"
-              width="136"
-              height="62"
-              rx="12"
-              fill="url(#cakeTierTop)"
-              stroke="#d5b895"
-              stroke-width="1.5"
-            />
-            <!-- Rose-Gold Frosting Drips on Top Tier -->
+            <!-- Fluted Pedestal Column -->
             <path
-              d="M92,144 Q104,134 116,146 Q128,158 140,145 Q152,134 164,148 Q176,160 188,145 Q200,134 212,147 Q220,154 228,144 L228,138 Q228,134 220,134 L100,134 Q92,134 92,138 Z"
-              fill="url(#roseFrosting)"
+              d="M148,266 C152,284 140,302 128,311 L232,311 C220,302 208,284 212,266 Z"
+              fill="url(#porcelainPillar)"
+            />
+            <!-- Subtle Fluted Carvings on Pedestal Stem -->
+            <path d="M164,268 C165,285 159,300 152,310" stroke="#bba992" stroke-width="1" fill="none" opacity="0.6" />
+            <path d="M180,268 L180,311" stroke="#fffdf9" stroke-width="1.4" fill="none" opacity="0.8" />
+            <path d="M196,268 C195,285 201,300 208,310" stroke="#9e8c76" stroke-width="1" fill="none" opacity="0.55" />
+
+            <!-- Pedestal Plate Under-Rim & Gold Beaded Edge -->
+            <ellipse cx="180" cy="262" rx="136" ry="20" fill="#bda990" />
+            <ellipse cx="180" cy="259" rx="138" ry="19" fill="url(#porcelainPlate)" stroke="url(#goldLeafGrad)" stroke-width="1.3" />
+            <ellipse cx="180" cy="257" rx="126" ry="15" fill="#f9f4ec" stroke="#dcc7a6" stroke-width="0.7" />
+
+            <!-- ============================================================
+                 BOTTOM CYLINDRICAL PATISSERIE TIER
+                 ============================================================ -->
+            <!-- Contact Shadow of Bottom Tier on Porcelain Plate -->
+            <ellipse cx="180" cy="256" rx="108" ry="13.5" fill="#8b7359" opacity="0.38" />
+
+            <!-- Bottom Cylinder Body (x=76 to 284, width=208) -->
+            <path
+              d="M76,182 L76,251 A104,13 0 0,0 284,251 L284,182 Z"
+              fill="url(#bottomTierCylinder)"
+              stroke="#cbb092"
+              stroke-width="0.9"
             />
 
-            <!-- Bottom Cake Tier -->
-            <rect
-              x="56"
-              y="192"
-              width="208"
-              height="76"
-              rx="14"
-              fill="url(#cakeTierBottom)"
-              stroke="#caa982"
-              stroke-width="1.5"
-            />
-            <!-- Cream Scallop Garland on Bottom Tier -->
+            <!-- Delicate Horizontal Sponge Ribbing & Buttercream Texture Lines -->
+            <path d="M76,216 A104,13 0 0,0 284,216" fill="none" stroke="#e4cfb6" stroke-width="1.1" opacity="0.7" />
+            <path d="M76,218 A104,13 0 0,0 284,218" fill="none" stroke="#ffffff" stroke-width="0.9" opacity="0.75" />
+
+            <!-- Bottom Tier Base Piped Pearl Border -->
+            <g fill="url(#topTierCrown)" stroke="#d3b899" stroke-width="0.6">
+              <circle cx="82" cy="251" r="4.2" />
+              <circle cx="93" cy="254" r="4.4" />
+              <circle cx="105" cy="256.5" r="4.6" />
+              <circle cx="118" cy="258.5" r="4.7" />
+              <circle cx="132" cy="260" r="4.8" />
+              <circle cx="147" cy="261.2" r="4.9" />
+              <circle cx="163" cy="262" r="5" />
+              <circle cx="180" cy="262.2" r="5" />
+              <circle cx="197" cy="262" r="5" />
+              <circle cx="213" cy="261.2" r="4.9" />
+              <circle cx="228" cy="260" r="4.8" />
+              <circle cx="242" cy="258.5" r="4.7" />
+              <circle cx="255" cy="256.5" r="4.6" />
+              <circle cx="267" cy="254" r="4.4" />
+              <circle cx="278" cy="251" r="4.2" />
+            </g>
+
+            <!-- Bottom Tier Elliptical Top Shoulder -->
+            <ellipse cx="180" cy="182" rx="104" ry="13" fill="url(#bottomTierCrown)" stroke="#d5bc9e" stroke-width="0.9" />
+
+            <!-- Vintage Lambeth Piped Buttercream Swags & Gold Leaf Flecks on Bottom Tier -->
             <path
-              d="M56,206 Q74,222 92,206 Q110,222 128,206 Q146,222 164,206 Q182,222 200,206 Q218,222 236,206 Q250,218 264,206"
+              d="M78,194 Q98,214 120,198 Q148,220 180,200 Q212,220 240,198 Q262,214 282,194"
               fill="none"
-              stroke="#fffaf2"
-              stroke-width="5"
+              stroke="#fffdf9"
+              stroke-width="3.2"
               stroke-linecap="round"
             />
-            <!-- Golden Pearls & Botanical Sprigs on Bottom Tier -->
-            <circle cx="92" cy="232" r="3.5" fill="#c89d54" />
-            <circle cx="128" cy="232" r="3.5" fill="#c89d54" />
-            <circle cx="164" cy="232" r="3.5" fill="#c89d54" />
-            <circle cx="200" cy="232" r="3.5" fill="#c89d54" />
-            <circle cx="236" cy="232" r="3.5" fill="#c89d54" />
+            <path
+              d="M78,196 Q98,216 120,200 Q148,222 180,202 Q212,222 240,200 Q262,216 282,196"
+              fill="none"
+              stroke="#d5b895"
+              stroke-width="1"
+              stroke-linecap="round"
+              opacity="0.65"
+            />
 
-            <!-- Porcelain Cake Stand with Meadow Green Leaf Base Accent -->
-            <ellipse cx="160" cy="270" rx="126" ry="10" fill="#e5d7c3" stroke="#c89d54" stroke-width="1.5" />
-            <path d="M132,276 L188,276 L204,298 L116,298 Z" fill="#d9c7af" stroke="#c89d54" stroke-width="1.2" />
-            <ellipse cx="160" cy="298" rx="54" ry="6" fill="#c8b296" />
+            <!-- Hand-Placed Edible Gold Leaf Flecks on Bottom Tier -->
+            <g fill="url(#goldLeafGrad)">
+              <path d="M118,200 L122,197 L120,203 Z" />
+              <path d="M178,202 L183,199 L181,205 Z" />
+              <path d="M238,200 L243,198 L240,204 Z" />
+              <circle cx="149" cy="232" r="2.2" />
+              <circle cx="180" cy="235" r="2.5" />
+              <circle cx="211" cy="232" r="2.2" />
+            </g>
+
+            <!-- ============================================================
+                 TOP CYLINDRICAL PATISSERIE TIER
+                 ============================================================ -->
+            <!-- Contact Shadow of Top Tier on Bottom Tier Shoulder -->
+            <ellipse cx="180" cy="182" rx="74" ry="9.5" fill="#9c7e61" opacity="0.32" />
+
+            <!-- Top Cylinder Body (x=110 to 250, width=140) -->
+            <path
+              d="M110,122 L110,179 A70,9 0 0,0 250,179 L250,122 Z"
+              fill="url(#topTierCylinder)"
+              stroke="#d5bc9f"
+              stroke-width="0.9"
+            />
+
+            <!-- Top Tier Base Piped Rope Garland -->
+            <g fill="#fffdf9" stroke="#d3b899" stroke-width="0.6">
+              <circle cx="115" cy="179" r="3.4" />
+              <circle cx="125" cy="181.5" r="3.6" />
+              <circle cx="137" cy="183.5" r="3.8" />
+              <circle cx="150" cy="185" r="3.9" />
+              <circle cx="165" cy="186" r="4" />
+              <circle cx="180" cy="186.3" r="4" />
+              <circle cx="195" cy="186" r="4" />
+              <circle cx="210" cy="185" r="3.9" />
+              <circle cx="223" cy="183.5" r="3.8" />
+              <circle cx="235" cy="181.5" r="3.6" />
+              <circle cx="245" cy="179" r="3.4" />
+            </g>
+
+            <!-- Organic Rose-Champagne Mascarpone Cream Drips Over Top Edge -->
+            <path
+              d="M110,122
+                 C110,128 114,138 118,138
+                 C122,138 124,129 129,130
+                 C134,131 135,149 140,149
+                 C145,149 147,132 154,132
+                 C160,132 162,143 167,143
+                 C172,143 175,131 182,132
+                 C188,133 190,154 195,154
+                 C200,154 202,133 209,132
+                 C215,131 218,144 223,144
+                 C228,144 230,130 236,130
+                 C241,130 243,140 246,139
+                 C249,138 250,129 250,122 Z"
+              fill="url(#mascarponeGlaze)"
+            />
+
+            <!-- Top Tier Elliptical Crown Surface -->
+            <ellipse cx="180" cy="122" rx="70" ry="9" fill="url(#mascarponeGlaze)" />
+            <ellipse cx="180" cy="121" rx="66" ry="7.8" fill="url(#topTierCrown)" />
+
+            <!-- ============================================================
+                 BOTANICAL SAGE LEAVES, SHADED RUBY BERRIES & GOLD LEAF CROWN
+                 ============================================================ -->
+            <!-- Sage Botanical Leaves (Left & Right) -->
+            <g fill="#48755b" stroke="#2c4c39" stroke-width="0.6">
+              <path d="M126,121 C112,113 102,119 106,126 C112,130 121,126 126,121 Z" />
+              <path d="M138,117 C128,106 118,108 121,116 C125,121 133,119 138,117 Z" fill="#5e8f72" />
+              <path d="M234,121 C248,113 258,119 254,126 C248,130 239,126 234,121 Z" />
+              <path d="M222,117 C232,106 242,108 239,116 C235,121 227,119 222,117 Z" fill="#5e8f72" />
+            </g>
+
+            <!-- 3D-Shaded Ruby Strawberries / Raspberries with Specular Highlights -->
+            <g>
+              <!-- Left Outer Berry -->
+              <path d="M132,111 C140,111 143,124 132,126 C121,124 124,111 132,111 Z" fill="url(#rubyBerryGrad)" />
+              <ellipse cx="129" cy="115" rx="2.2" ry="1.2" transform="rotate(-20 129 115)" fill="#ffd8d4" opacity="0.75" />
+              <circle cx="134" cy="119" r="0.6" fill="#f7d69c" />
+              <circle cx="130" cy="122" r="0.6" fill="#f7d69c" />
+
+              <!-- Left Inner Berry -->
+              <path d="M151,114 C158,114 160,125 151,127 C142,125 144,114 151,114 Z" fill="url(#rubyBerryGrad)" />
+              <ellipse cx="149" cy="118" rx="1.8" ry="1" transform="rotate(-15 149 118)" fill="#ffd8d4" opacity="0.75" />
+
+              <!-- Right Inner Berry -->
+              <path d="M209,114 C216,114 218,125 209,127 C200,125 202,114 209,114 Z" fill="url(#rubyBerryGrad)" />
+              <ellipse cx="207" cy="118" rx="1.8" ry="1" transform="rotate(-15 207 118)" fill="#ffd8d4" opacity="0.75" />
+
+              <!-- Right Outer Berry -->
+              <path d="M228,111 C236,111 239,124 228,126 C217,124 220,111 228,111 Z" fill="url(#rubyBerryGrad)" />
+              <ellipse cx="225" cy="115" rx="2.2" ry="1.2" transform="rotate(-20 225 115)" fill="#ffd8d4" opacity="0.75" />
+              <circle cx="230" cy="119" r="0.6" fill="#f7d69c" />
+              <circle cx="226" cy="122" r="0.6" fill="#f7d69c" />
+
+              <!-- Gold Sugar Dragees on Crown -->
+              <circle cx="164" cy="124" r="2.6" fill="url(#goldLeafGrad)" />
+              <circle cx="196" cy="124" r="2.6" fill="url(#goldLeafGrad)" />
+            </g>
+
+            <!-- ============================================================
+                 RIBBED BEESWAX TAPER CANDLE, WICK, SMOKE & MULTI-LAYER FLAME
+                 ============================================================ -->
+            <!-- Melted Wax Pool Collar at Candle Base -->
+            <ellipse cx="180" cy="122" rx="11" ry="3.2" fill="#f5e6c8" stroke="#d4a359" stroke-width="0.6" />
+
+            <!-- Ribbed Beeswax Taper Candle Stick -->
+            <path
+              d="M173.5,68 L172,121 A8,2.2 0 0,0 188,121 L186.5,68 Z"
+              fill="url(#beeswaxCylinder)"
+              stroke="#c9a56a"
+              stroke-width="0.8"
+            />
+            <!-- Delicate Helical Gold Threading on Beeswax Candle -->
+            <path
+              d="M173,80 Q180,84 187,78 M172.5,95 Q180,99 187.5,93 M172,110 Q180,114 188,108"
+              fill="none"
+              stroke="#d4a359"
+              stroke-width="1.1"
+              opacity="0.75"
+            />
+            <!-- Candle Top Cup Rim -->
+            <ellipse cx="180" cy="68" rx="6.5" ry="1.8" fill="#fffdf7" stroke="#d4a359" stroke-width="0.6" />
+
+            <!-- Braided Cotton Candle Wick -->
+            <path d="M180,68 Q181,62 180,58" fill="none" stroke="#2b211d" stroke-width="1.8" stroke-linecap="round" />
+            <!-- Glowing Ember Tip on Wick -->
+            <circle cx="180" cy="58" r="1.3" fill="#ff7b29" />
+
+            <!-- Curling Smoke Wisp Path (Revealed when extinguished) -->
+            <g id="candle-smoke" class="candle-smoke-path">
+              <defs>
+                <linearGradient id="smokeWispGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#8c8178" stop-opacity="0.78" />
+                  <stop offset="55%" stop-color="#b5aba2" stop-opacity="0.45" />
+                  <stop offset="100%" stop-color="#ded7d0" stop-opacity="0" />
+                </linearGradient>
+                <filter id="smokeSoftBlur" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="0.9" />
+                </filter>
+              </defs>
+              <path
+                class="smoke-ribbon-main"
+                d="M180,57 C175,45 186,33 177,20 C170,9 183,0 179,-10"
+                fill="none"
+                stroke="url(#smokeWispGrad)"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                filter="url(#smokeSoftBlur)"
+              />
+              <path
+                class="smoke-ribbon-secondary"
+                d="M181,54 C187,42 174,28 184,14 C189,6 181,-2 184,-8"
+                fill="none"
+                stroke="url(#smokeWispGrad)"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                opacity="0.6"
+                filter="url(#smokeSoftBlur)"
+              />
+            </g>
+
+            <!-- Expanding Golden Wish Shockwave Ring (Triggered when candle is blown out) -->
+            <circle
+              id="candle-wish-ripple"
+              class="wish-shockwave-ring"
+              cx="180"
+              cy="64"
+              r="10"
+              fill="none"
+              stroke="#f4dd9e"
+              stroke-width="2"
+              opacity="0"
+            />
+
+            <!-- Dynamic Multi-Layered Candle Flame (#candle-flame) -->
+            <g id="candle-flame" class="candle-flame-group" title="แตะค้างเพื่ออธิษฐานและเป่าเทียน">
+              <!-- Outer Warm Amber Bloom Aura -->
+              <circle
+                cx="180"
+                cy="42"
+                r="44"
+                fill="url(#amberFlameBloom)"
+                class="candle-aura-bloom"
+              />
+              <!-- Soft Secondary Halo -->
+              <circle
+                cx="180"
+                cy="44"
+                r="22"
+                fill="#ffd27d"
+                opacity="0.22"
+              />
+              <!-- Teardrop Outer Golden-Amber Flame -->
+              <path
+                d="M180,14 C189,29 193,46 180,58 C167,46 171,29 180,14 Z"
+                fill="url(#outerFlameGrad)"
+              />
+              <!-- Ivory-Yellow Inner Luminous Core -->
+              <path
+                d="M180,24 C185.5,35 187,46 180,55 C173,46 174.5,35 180,24 Z"
+                fill="#fff6c2"
+              />
+              <!-- Pure White-Gold Hot Center -->
+              <path
+                d="M180,33 C183,40 183.5,47 180,53 C176.5,47 177,40 180,33 Z"
+                fill="#ffffff"
+                opacity="0.9"
+              />
+              <!-- Cerulean Blue Core Base -->
+              <ellipse cx="180" cy="55.5" rx="4.2" ry="2.2" fill="#6bb8ff" opacity="0.82" />
+            </g>
           </svg>
         </div>
 
-        <p
-          id="cake-flavor-label"
-          class="font-display-en text-xs md:text-sm text-[#7d726d] tracking-widest mb-6"
-        >
-          Vanilla Bean &amp; Rose Champagne Cake
+        <p id="cake-flavor-label" class="cake-flavor-caption font-serif-italic">
+          French Vanilla Bean &amp; Rose Champagne Cake
         </p>
 
-        <!-- Interactive Controls: Touch-Hold Button + Mic Blow Button + Relight Button -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Interactive Candle Controls: Hold-to-Wish Ring + Mic Blow + Relight -->
+        <div class="cake-controls-group">
           <button
             id="blow-candle-btn"
             type="button"
-            class="relative min-h-[56px] px-7 py-3.5 rounded-full bg-[#231f1e] text-[#fbf7f0] font-body-th font-medium text-[16px] md:text-[17px] shadow-xl hover:bg-[#38312f] active:scale-95 transition flex items-center justify-center gap-3 cursor-pointer select-none"
+            class="btn-wish-hold"
           >
-            <!-- SVG Progress Ring -->
-            <svg class="w-10 h-10 -rotate-90 shrink-0" viewBox="0 0 60 60" aria-hidden="true">
+            <!-- Bespoke Progress Ring (r="20", circumference="125.66") + Inline Candle SVG -->
+            <svg class="w-11 h-11 -rotate-90 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
               <circle
-                cx="30"
-                cy="30"
-                r="26"
+                cx="24"
+                cy="24"
+                r="20"
                 fill="none"
-                stroke="rgba(242, 223, 182, 0.25)"
-                stroke-width="4"
+                stroke="rgba(244, 221, 158, 0.22)"
+                stroke-width="2.5"
               />
               <circle
                 id="wish-progress-circle"
-                class="wish-ring-progress"
-                cx="30"
-                cy="30"
-                r="26"
+                class="wish-progress-ring"
+                cx="24"
+                cy="24"
+                r="20"
                 fill="none"
-                stroke="#e8c792"
-                stroke-width="4"
+                stroke="#f4dd9e"
+                stroke-width="2.5"
                 stroke-linecap="round"
-                stroke-dasharray="163.36"
-                stroke-dashoffset="163.36"
+                stroke-dasharray="125.66"
+                stroke-dashoffset="125.66"
               />
-              <text
-                x="30"
-                y="35"
-                text-anchor="middle"
-                fill="#f2dfb6"
-                font-size="16"
-                transform="rotate(90 30 30)"
-              >
-                🕯️
-              </text>
+              <!-- Delicate Inline Flame Line-Art Icon (Upright inside rotated SVG) -->
+              <g transform="rotate(90 24 24)" fill="none" stroke="#f4dd9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 14c2.5 3.2 3 6.2 0 8.5-3-2.3-2.5-5.3 0-8.5Z" />
+                <path d="M21 26h6v7h-6z" />
+              </g>
             </svg>
             <span id="blow-candle-btn-text">แตะค้างเพื่ออธิษฐานและเป่าเทียน</span>
           </button>
@@ -435,143 +675,194 @@
           <button
             id="mic-blow-btn"
             type="button"
-            class="min-h-[52px] px-6 py-3 rounded-full bg-[#f3ece1] hover:bg-[#e9dfd0] border border-[#c89d54]/45 text-[#231f1e] font-body-th text-[15px] md:text-[16px] active:scale-95 transition cursor-pointer"
+            class="btn-subtle-action"
           >
-            เป่าลมผ่านไมค์ 🎙️
+            <svg class="w-4 h-4 text-[#946325] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="9" y="3" width="6" height="11" rx="3" />
+              <path d="M5 11a7 7 0 0 0 14 0M12 18v3m-3 0h6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="mic-blow-btn-text">เป่าลมผ่านไมค์</span>
           </button>
 
           <button
             id="relight-candle-btn"
             type="button"
-            class="hidden min-h-[50px] px-6 py-3 rounded-full bg-[#f3ece1] hover:bg-[#e9dfd0] border border-[#c89d54]/50 text-[#231f1e] font-body-th text-[15px] active:scale-95 transition cursor-pointer"
+            class="btn-subtle-action hidden"
           >
-            จุดเทียนอธิษฐานอีกครั้ง 🕯️
+            <svg class="w-4 h-4 text-[#946325] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M20 11A8 8 0 1 0 18 17.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 7v4h-4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>จุดเทียนอธิษฐานอีกครั้ง</span>
           </button>
         </div>
 
-        <!-- Revealed Birthday Blessing Card after Candle is Blown Out -->
-        <div
-          id="after-blow-panel"
-          class="hidden mt-8 pt-8 border-t border-[#c89d54]/35 max-w-xl mx-auto text-center animate-fade-in"
-        >
-          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#e8c792]/25 text-[#965d4c] text-sm font-body-th mb-3">
-            <span>✦ Wish Sent to the Stars ✦</span>
+        <!-- Revealed Blessing Panel after Candle is Extinguished -->
+        <div id="after-blow-panel" class="revealed-blessing-panel hidden">
+          <div class="blessing-star-divider" aria-hidden="true">
+            <svg class="w-5 h-5 text-[#b88339]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M12 3c.9 4.5 4.5 8.1 9 9-4.5.9-8.1 4.5-9 9-.9-4.5-4.5-8.1-9-9 4.5-.9 8.1-4.5 9-9Z" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <h3
-            id="after-blow-title"
-            class="font-heading-th text-2xl md:text-3xl text-[#965d4c] font-medium mb-3"
-          >
-            เย้! ขอให้คำอธิษฐานทุกข้อเป็นจริงนะ ✨
+          <h3 id="after-blow-title" class="blessing-title-th font-heading-th">
+            ขอให้คำอธิษฐานทุกข้อเป็นจริงนะ
           </h3>
-          <p
-            id="after-blow-message"
-            class="font-body-th text-[17px] text-[#231f1e] leading-[1.9]"
-          >
-            ไม่ว่าปีนี้เธอจะอยากทำอะไร หรืออยากไปที่ไหน เค้าจะคอยซัพพอร์ตและเดินจับมือเธออยู่ข้างๆ เสมอเลยนะ สุขสันต์วันเกิดครับ
+          <p id="after-blow-message" class="blessing-message-th font-body-th">
+            ไม่ว่าปีนี้เธอจะอยากทำอะไร หรือไปที่ไหน เค้าจะคอยอยู่ข้างๆ ซัพพอร์ตและจับมือเธอไว้เสมอเลยนะ สุขสันต์วันเกิดครับ
           </p>
         </div>
       </div>
     </section>
 
+    <!-- Golden Constellation Thread Bridge: Patisserie Cake -> Wax-Sealed Letter -->
+    <div class="constellation-bridge" aria-hidden="true">
+      <span class="constellation-thread-line"></span>
+      <svg class="constellation-star-node" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2c.9 5.2 4.8 9.1 10 10-5.2.9-9.1 4.8-10 10-.9-5.2-4.8-9.1-10-10 5.2-.9 9.1-4.8 10-10Z" fill="#d4a359" fill-opacity="0.35" stroke="#b88339" stroke-width="1.2"/>
+      </svg>
+      <span class="constellation-thread-line"></span>
+    </div>
+
     <!-- ======================================================================
-         SECTION 2: 3D Wax-Sealed Birthday Letter
+         SECTION 2: Tactile Wax-Sealed Envelope & Fine Cotton Letter
          ====================================================================== -->
-    <section id="letter-section" class="py-12 md:py-20 px-4 sm:px-6 max-w-3xl mx-auto">
-      <div class="text-center mb-10">
-        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
-          A Letter for You
-        </p>
-        <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium">
+    <section id="letter-section" class="letter-section">
+      <div class="section-header-block reveal-on-scroll">
+        <h2 class="section-heading-th font-heading-th">
           จดหมายวันเกิดถึงคนเก่งของเค้า
         </h2>
+        <p class="section-subcopy-th font-body-th">
+          ข้อความจากใจที่ตั้งใจเขียนเก็บไว้ในซองจดหมายฉบับนี้เพื่อเธอคนเดียว
+        </p>
       </div>
 
-      <div class="envelope-wrapper">
+      <div class="envelope-stage reveal-on-scroll">
         <!-- Closed Envelope State -->
-        <div
-          id="envelope-closed-state"
-          class="envelope-card rounded-[28px] p-8 sm:p-12 md:p-16 text-center relative overflow-hidden"
-        >
-          <!-- Decorative Envelope Flap Lines -->
+        <div id="envelope-closed-state" class="envelope-outer-box">
+          <!-- Bespoke Corner Gold Filigree Flourishes -->
+          <div class="card-filigree-frame" aria-hidden="true">
+            <span class="filigree-corner filigree-tl"></span>
+            <span class="filigree-corner filigree-tr"></span>
+            <span class="filigree-corner filigree-bl"></span>
+            <span class="filigree-corner filigree-br"></span>
+          </div>
+
+          <!-- Realistic Diagonal Paper Fold Lines & Deckle Shadow -->
           <svg
-            class="absolute inset-x-0 top-0 w-full h-36 text-[#c89d54]/30 pointer-events-none"
-            viewBox="0 0 600 160"
+            class="envelope-fold-svg"
+            viewBox="0 0 680 340"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <path d="M0,0 L300,140 L600,0" fill="rgba(233, 223, 208, 0.55)" stroke="currentColor" stroke-width="1.5" />
+            <defs>
+              <linearGradient id="flapShadeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f7efe2" />
+                <stop offset="100%" stop-color="#e5d4bc" />
+              </linearGradient>
+              <filter id="flapDropShadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#2b2118" flood-opacity="0.12" />
+              </filter>
+            </defs>
+            <!-- Bottom & Side Pocket Fold Creases -->
+            <path d="M0,340 L260,175 M680,340 L420,175" stroke="#cbb598" stroke-width="1.2" fill="none" opacity="0.7" />
+            <!-- Top Triangular Envelope Flap with Deckle Shadow -->
+            <path
+              id="envelope-top-flap"
+              d="M0,0 L340,198 L680,0 Z"
+              fill="url(#flapShadeGrad)"
+              stroke="#cfb899"
+              stroke-width="1.2"
+              filter="url(#flapDropShadow)"
+            />
+            <!-- Inner Gold Foil Hairline along Flap -->
+            <path
+              d="M18,0 L340,186 L662,0"
+              fill="none"
+              stroke="#d4a359"
+              stroke-width="0.8"
+              stroke-dasharray="4 3"
+              opacity="0.55"
+            />
           </svg>
 
-          <div class="relative z-10 flex flex-col items-center">
-            <span class="font-display-en text-xs tracking-[0.2em] text-[#7d726d] mb-2">
-              PRIVATE &amp; CONFIDENTIAL
-            </span>
-            <p
-              id="envelope-recipient-label"
-              class="font-heading-th text-xl sm:text-2xl text-[#231f1e] font-medium mb-8"
-            >
-              สำหรับคนพิเศษของเค้า
+          <div class="envelope-content-stack">
+            <p id="envelope-recipient-label" class="envelope-recipient-title font-heading-th">
+              ถึง คนพิเศษของเค้า
             </p>
 
-            <!-- Interactive Rose-Gold Wax Seal Button -->
+            <!-- Handcrafted Scalloped Venetian Wax Seal Crest Button -->
             <button
               id="open-envelope-btn"
               type="button"
-              class="wax-seal-btn mb-5 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c89d54]"
-              aria-label="แตะตราครั่งเพื่อเปิดซองจดหมาย"
+              class="wax-seal-button"
+              aria-label="แตะตราครั่งเพื่อเปิดอ่านจดหมาย"
             >
-              <span class="text-[#fbf7f0] text-2xl drop-shadow" aria-hidden="true">♥</span>
+              <svg class="w-16 h-16" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <!-- Organic Pressed Wax Outer Rim & Inner Bevel Ring -->
+                <circle cx="40" cy="40" r="30" stroke="#f4dd9e" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="2 2" />
+                <circle cx="40" cy="40" r="25" stroke="#f4dd9e" stroke-opacity="0.75" stroke-width="1.3" />
+                <!-- Engraved Botanical Olive Sprig & Heart Monogram Crest -->
+                <path
+                  d="M40 31.5c-2.2-3.2-6.8-3.4-9-.5-2.2 2.9-1.4 7.1 1.8 9.8L40 47l7.2-6.2c3.2-2.7 4-6.9 1.8-9.8-2.2-2.9-6.8-2.7-9 .5Z"
+                  stroke="#fbf0d5"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <!-- Delicate Botanical Flourish Under Monogram -->
+                <path
+                  d="M27 50c3.8 3.2 8.2 4.8 13 4.8s9.2-1.6 13-4.8"
+                  stroke="#f4dd9e"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  opacity="0.85"
+                />
+                <circle cx="40" cy="23" r="1.3" fill="#f4dd9e" opacity="0.85" />
+              </svg>
             </button>
 
-            <p
-              id="envelope-seal-hint"
-              class="font-body-th text-sm sm:text-[15px] text-[#7d726d]"
-            >
-              แตะที่ตราครั่งสีโรสโกลด์เพื่อเปิดซองจดหมาย
+            <p id="envelope-seal-hint" class="envelope-seal-caption font-body-th">
+              แตะที่ตราครั่งเพื่อเปิดอ่านจดหมาย
             </p>
           </div>
         </div>
 
-        <!-- Opened Editorial Letter State -->
-        <article
-          id="envelope-open-state"
-          class="hidden letter-sheet rounded-[28px] p-7 sm:p-11 md:p-14 relative"
-        >
-          <div class="flex items-center justify-between border-b border-[#c89d54]/30 pb-4 mb-7">
-            <span class="font-display-en text-sm text-[#965d4c]">
-              BIRTHDAY EDITION · STARLIGHT &amp; SEA
-            </span>
+        <!-- Opened Fine Cotton Letter Sheet -->
+        <article id="envelope-open-state" class="letter-sheet-view hidden">
+          <div class="letter-sheet-topbar">
+            <!-- Delicate Botanical Olive Branch Divider -->
+            <div class="letter-crest-mark" aria-hidden="true">
+              <svg class="w-6 h-6 text-[#b88339]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M4 17c4.5-1 8.5-5 11-11 1.5 4.5 1 9-3 12-2.5 2-5.5 2-8-1Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 17c3-2.5 6.5-5.5 9.5-9.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
             <button
               id="close-letter-btn"
               type="button"
-              class="text-xs font-body-th text-[#7d726d] hover:text-[#231f1e] px-3 py-1.5 rounded-full border border-[#c89d54]/30 cursor-pointer"
+              class="btn-close-letter font-body-th"
             >
-              พับเก็บใส่ซอง ✕
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>พับเก็บใส่ซอง</span>
             </button>
           </div>
 
-          <h3
-            id="letter-salutation"
-            class="font-heading-th text-2xl text-[#231f1e] font-medium mb-6"
-          >
+          <h3 id="letter-salutation" class="letter-salutation-th font-heading-th">
             ถึง ที่รักของเค้า,
           </h3>
 
-          <div id="letter-paragraphs" class="space-y-4">
-            <!-- Populated by config.js -->
+          <div id="letter-paragraphs" class="letter-body-flow">
+            <!-- Populated dynamically by app.js from config.js -->
           </div>
 
-          <div class="mt-10 pt-6 border-t border-[#c89d54]/25 flex flex-col items-end text-right">
-            <p
-              id="letter-closing"
-              class="font-body-th text-[17px] text-[#544b47] mb-1"
-            >
-              รักเธอมากๆ นะครับ,
+          <div class="letter-signature-block">
+            <p id="letter-closing" class="letter-closing-th font-body-th">
+              รักเธอเสมอนะครับ,
             </p>
-            <p
-              id="letter-sender"
-              class="font-heading-th text-2xl text-[#965d4c] font-medium"
-            >
+            <p id="letter-sender" class="letter-sender-th font-heading-th">
               คนที่รักเธอที่สุด
             </p>
           </div>
@@ -579,107 +870,68 @@
       </div>
     </section>
 
-    <!-- ======================================================================
-         SECTION 3: 3D Flip Polaroid Memories
-         ====================================================================== -->
-    <section id="memories-section" class="py-14 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <p class="font-serif-italic text-[#965d4c] text-xl md:text-2xl mb-1">
-          Our Favorite Chapters
-        </p>
-        <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#231f1e] font-medium mb-3">
-          เรื่องราวและความทรงจำของเรา
-        </h2>
-        <p class="font-body-th text-[16px] text-[#544b47]">
-          แตะที่รูปโพลารอยด์แต่ละใบเพื่อพลิกอ่านข้อความลับด้านหลังรูปได้เลยนะ ↻
-        </p>
-      </div>
-
-      <div
-        id="memories-grid"
-        class="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8"
-      >
-        <!-- Populated by app.js from config.js -->
-      </div>
-    </section>
+    <!-- Golden Constellation Thread Bridge: Wax-Sealed Letter -> Star Wishes -->
+    <div class="constellation-bridge constellation-bridge-bottom" aria-hidden="true">
+      <span class="constellation-thread-line"></span>
+      <svg class="constellation-star-node" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2c.9 5.2 4.8 9.1 10 10-5.2.9-9.1 4.8-10 10-.9-5.2-4.8-9.1-10-10 5.2-.9 9.1-4.8 10-10Z" fill="#d4a359" fill-opacity="0.35" stroke="#b88339" stroke-width="1.2"/>
+      </svg>
+      <span class="constellation-thread-line"></span>
+    </div>
 
     <!-- ======================================================================
-         SECTION 4: Starlight Wishes Over the Coastal Meadow (Closing Scene)
+         SECTION 3: Celestial Star Wishes & Golden Perforated Voucher
          ====================================================================== -->
-    <section
-      id="wishes-section"
-      class="relative mt-12 pt-20 pb-36 px-4 sm:px-6 overflow-hidden text-[#fbf7f0]"
-      style="background: linear-gradient(180deg, #091326 0%, #142844 55%, #1c3b36 100%);"
-    >
-      <div class="max-w-4xl mx-auto relative z-10">
-        <div class="text-center max-w-xl mx-auto mb-10">
-          <p class="font-serif-italic text-[#f2dfb6] text-xl md:text-2xl mb-1">
-            Four Stars Over the Sea
-          </p>
-          <h2 class="font-heading-th text-2xl sm:text-3xl md:text-4xl text-[#fbf7f0] font-medium mb-3">
+    <section id="wishes-section" class="wishes-night-section">
+      <!-- Painterly Coastal Crest Transition into Starlit Night -->
+      <div class="wishes-top-wave" aria-hidden="true">
+        <svg class="w-full h-full block" viewBox="0 0 1440 84" preserveAspectRatio="none">
+          <path d="M0,0 L1440,0 L1440,34 C1120,76 780,14 420,56 C210,78 90,52 0,36 Z" fill="#efe4d2" />
+          <path d="M0,36 C90,52 210,78 420,56 C780,14 1120,76 1440,34" fill="none" stroke="#d4a359" stroke-width="1.2" stroke-opacity="0.45" />
+        </svg>
+      </div>
+
+      <div class="wishes-inner-container">
+        <div class="section-header-block section-header-on-dark reveal-on-scroll">
+          <h2 class="section-heading-th font-heading-th text-[#fffaf0]">
             เก็บดาวคำอวยพรเหนือทุ่งหญ้าและทะเล
           </h2>
-          <p class="font-body-th text-[16px] text-[#fbf7f0]/80">
-            แตะที่ดวงดาวแต่ละดวงเพื่อเปิดอ่านคำอวยพรและของขวัญที่ซ่อนไว้ให้เธอนะ ★
+          <p class="section-subcopy-th font-body-th text-[#fffaf0]/80">
+            แตะที่ดวงดาวแต่ละดวงเพื่อเปิดอ่านคำอวยพรและของขวัญที่ซ่อนไว้ให้เธอนะ
           </p>
         </div>
 
-        <!-- 4 Star Wish Orbs -->
-        <div
-          id="star-wishes-grid"
-          class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
-        >
+        <!-- 4 Celestial Star Charms -->
+        <div id="star-wishes-grid" class="star-wishes-grid reveal-on-scroll">
           <!-- Populated by app.js from config.js -->
         </div>
 
-        <!-- Displayed Star Wish Card -->
-        <div
-          id="star-wish-display"
-          class="hidden rounded-3xl p-7 sm:p-9 bg-[#fbf7f0] text-[#231f1e] border-2 border-[#e8c792] shadow-2xl max-w-2xl mx-auto text-center"
-        >
-          <span
-            id="star-wish-label"
-            class="inline-block px-3.5 py-1 rounded-full bg-[#e8c792]/30 text-[#965d4c] text-xs font-body-th font-medium mb-3"
-          >
+        <!-- Revealed Starlight Wish Card / Golden Perforated Voucher -->
+        <div id="star-wish-display" class="starlight-card-reveal hidden">
+          <span id="star-wish-label" class="star-wish-pill font-body-th">
             ดาวดวงที่ 1
           </span>
-          <h3
-            id="star-wish-title"
-            class="font-heading-th text-2xl text-[#231f1e] font-medium mb-3"
-          >
+          <h3 id="star-wish-title" class="star-wish-heading font-heading-th">
             ขอให้ยิ้มกว้างเหมือนเวลาเห็นทะเล
           </h3>
-          <p
-            id="star-wish-detail"
-            class="font-body-th text-[17px] text-[#544b47] leading-[1.85]"
-          >
+          <p id="star-wish-detail" class="star-wish-copy font-body-th">
             ขอให้ปีนี้ใจดีกับเธอเยอะๆ มีเรื่องให้หัวเราะและยิ้มได้ทุกวันโดยไม่ต้องฝืนเลยนะ
           </p>
         </div>
 
-        <div class="mt-14 text-center">
-          <p class="font-display-en text-2xl md:text-3xl text-[#f2dfb6] mb-2">
-            Happy Birthday, My Favorite Person
+        <!-- Nocturnal Sign-off -->
+        <footer class="nocturnal-footer">
+          <div class="footer-constellation-ornament" aria-hidden="true">
+            <span class="ornament-line"></span>
+            <svg class="w-4 h-4 text-[#f4dd9e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M12 3c.9 4.5 4.5 8.1 9 9-4.5.9-8.1 4.5-9 9-.9-4.5-4.5-8.1-9-9 4.5-.9 8.1-4.5 9-9Z" stroke-linejoin="round"/>
+            </svg>
+            <span class="ornament-line"></span>
+          </div>
+          <p class="font-display-en text-2xl sm:text-3xl text-[#f4dd9e]">
+            Happy Birthday, My Dearest
           </p>
-          <p class="font-body-th text-sm text-[#fbf7f0]/65">
-            สร้างด้วยความตั้งใจเผื่อให้เธอยิ้มในวันเกิดปีนี้นะ ✦
-          </p>
-        </div>
-      </div>
-
-      <!-- Footer Emerald Meadow Grass Silhouette -->
-      <div class="meadow-layer" aria-hidden="true">
-        <svg class="w-full h-24 sm:h-28 block" viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path d="M0,95 Q360,55 720,88 T1440,75 L1440,160 L0,160 Z" fill="#163327" />
-          <g class="grass-sway-medium" fill="#2b5c44">
-            <path d="M0,120 Q420,85 880,115 T1440,100 L1440,160 L0,160 Z" />
-            <path d="M90,140 Q115,75 140,45 Q122,98 110,140 Z" />
-            <path d="M310,140 Q290,78 270,48 Q298,98 325,140 Z" />
-            <path d="M580,140 Q608,72 636,42 Q612,96 598,140 Z" />
-            <path d="M890,140 Q870,76 850,48 Q878,96 906,140 Z" />
-            <path d="M1180,140 Q1208,72 1236,42 Q1212,96 1198,140 Z" />
-          </g>
-        </svg>
+        </footer>
       </div>
     </section>
   </main>
@@ -689,4 +941,3 @@
   <script src="./app.js"></script>
 </body>
 </html>
-
